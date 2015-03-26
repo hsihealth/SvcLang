@@ -30,7 +30,7 @@ patterns:
   match: \#.*$
 - comment: Setting
   name: keyword.other
-  match: ^(namespace|service|version)\s+(.+)
+  match: ^(namespace|service|version|stream)\s+(.+)
   captures:
     '2': {name: constant.language}
 - comment: Alias

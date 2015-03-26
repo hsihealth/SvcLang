@@ -83,7 +83,7 @@
 			<key>comment</key>
 			<string>Setting</string>
 			<key>match</key>
-			<string>^(namespace|service|version)\s+(.+)</string>
+			<string>^(namespace|service|version|stream)\s+(.+)</string>
 			<key>name</key>
 			<string>keyword.other</string>
 		</dict>
