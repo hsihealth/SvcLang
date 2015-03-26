@@ -1,0 +1,76 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Service Lang (Svclang)
+scopeName: source.svclang
+fileTypes: [svc,msg]
+uuid: df22d78e-b6a0-4484-8366-e818f287e490
+
+patterns:
+- comment: Message types
+  name: keyword.other
+  match: (abstract|query|event|command|partial message|document|responds with|extends|emits)\s(\w+)
+  captures:
+    '2': {name: entity.name}
+- comment: Category
+  name: entity.name.section
+  match: \#\#.*$
+- comment: A comment
+  name: comment.line.double-slash
+  match: //.*[\n]?$
+- comment: A multiline comment
+  name: comment.block.documentation
+  begin: /\*
+  end: \*/
+- comment: A multiline description
+  name: string.unquoted
+  begin: --
+  end: --
+- comment: An inline description
+  name: string.unquoted
+  match: \#.*$
+- comment: Setting
+  name: keyword.other
+  match: ^(namespace|service|version)\s+(.+)
+  captures:
+    '2': {name: constant.language}
+- comment: Alias
+  match: \s*(\w+)\s*\-\>\s*(\w+)
+  captures:
+    '1': {name: keyword.other}
+    '2': {name: constant.language}
+- comment: Message body
+  begin: \{
+  end: \}
+  patterns:
+  - include: $self
+  - comment: Section Header
+    name: support.constant
+    match: ^\s*(\w|\s)+\s*\:\s*$
+  - comment: Field declaration
+    begin: ^\s*(\w+)
+    end: (?=(\#|$))
+    patterns:
+    - comment: primitive type with default
+      begin: (string|number|integer|boolean|date|map|list|enum)\s*
+      end: (\)|(?=\#)|$)
+      beginCaptures:
+        '1': {name: constant.language}
+      patterns:
+      - comment: Default value
+        match: (\w|\.)+
+        name: support.constant
+    - comment: Type with default
+      begin: (\w+)\s*\(
+      end: \)
+      beginCaptures:
+        '1': {name: keyword.other}
+      patterns:
+      - comment: Default value
+        match: (\w|\.)+
+        name: support.constant
+    - comment: Type
+      match: \w+
+      name: keyword.other
+
+
+...
