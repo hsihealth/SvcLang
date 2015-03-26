@@ -11,6 +11,11 @@ patterns:
   match: (abstract|query|event|command|partial message|document|responds with|extends|emits)\s(\w+)
   captures:
     '2': {name: entity.name}
+- comment: Api pieces
+  name: keyword.other
+  match: (stream|http)\s(\w+)
+  captures:
+    '2': {name: entity.name}
 - comment: Category
   name: entity.name.section
   match: \#\#.*$
@@ -30,7 +35,7 @@ patterns:
   match: \#.*$
 - comment: Setting
   name: keyword.other
-  match: ^(namespace|service|version|stream)\s+(.+)
+  match: ^(namespace|service|version)\s+(.+)
   captures:
     '2': {name: constant.language}
 - comment: Alias

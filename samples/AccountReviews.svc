@@ -1,0 +1,126 @@
+namespace syncordia
+
+service AccountReviews
+
+version 1.0
+
+--
+Once insurance claims are submitted to a payer many things can interrupt or
+delay payment. To respond as quickly and effectively as possible, account review
+specialists periodically review every open account once every 30 days and apply
+any necessary interventions to ensure the best and most expedient outcome. This
+service provides all necessary support for scheduling, assigning and tracking
+these reviews.
+
+This service relies on data form the data warehouse.
+--
+
+## Account Review Management# Provides support for interacting with account reviews
+/*
+Well you know my name is simon
+*/
+
+// Base Messages
+partial message ErrorEvent {
+	message string # the error message
+}
+
+partial message EntityMessage {
+	id integer # The id of the entity to operate on
+}
+
+partial message AcccountReviewMessage {
+	review AccountReview # The review that is the context of the message
+}
+
+// Queries
+
+query AccountReviewQuery responds with AccountReviews
+{
+	reviews list[AccountReview] # The list of account reviews matching the provided query
+}
+
+query AccountReviewDetail extends EntityMessage responds with AccountReview
+
+query ReviewStatsQuery
+{
+	#Specifies a query agains the Account Review Snapshot cube. Results can be requested as a pivot table or as a set of time series.
+
+	optional fields:
+
+	start_date  date(today) 	# The first date in time window to query
+	end_date    date(today) 	# The last date in the time window to query
+	by		    string       	# The dimension to group by
+	where       map [string]  	# Cube filters to use to limit results
+	select      list[string] 	# The list of measures to include in the results
+	time_series boolean(false)  # Whether to return the results as a time series rather than a pivot table
+	use_epoch   boolean(false)  # Whether to use unix epoch time rather than dates in the time series (useful for some graphing libraries)
+}
+responds with AccountReviewStats
+{
+	stats_format  enum [PIVOT_TABLE,TIME_SERIES]  # Indicates the data type of the result
+	data          [PivotTable,TimeSeries]   	  # The results of the query, can be either a PivotTable or TimeSeries message, depending on the query
+}
+
+// Commands
+
+command BeginNextReview
+{
+	criteria AccountReviewQuery # The search criteria used to build up a candidate list of reviews to pick from
+}
+emits AccountReviewStarted extends AccountReviewMessage
+emits CannotBeginReview extends ErrorEvent
+
+command BeginReview extends EntityMessage
+{
+	# Begin a specified review or emit an error event
+}
+emits AccountReviewStarted
+emits CannotBeginReview
+
+command DeferReview extends EntityMessage
+{
+	# Suspend this review until a future date
+
+	deferred_until_date date   # The date at which the review will be returned to active duty
+
+	optional fields:
+
+	resolution_comment string # Any comments regarding why the account was deferred
+
+}
+emits AccountReviewDeferred extends AccountReviewMessage
+emits CannotDeferReview extends ErrorEvent
+
+command CompleteReview extends EntityMessage
+{
+	# Indicate that an account review has been completed 
+
+	optional fields:
+
+	resolution_comment 		  string		# Any comments regarding the completion of the review
+	no_action_needed   		  boolean		# True if no action was taken in the performance of this review
+	account_review_action_ids list[integer] # The list of identifiers of actions that were taken as part of this review
+}
+emits AccountReviewCompleted extends AccountReviewMessage
+emits CannotCompleteReview extends ErrorEvent
+
+event AccountReviewCreated extends AccountReviewMessage
+{
+	# Emitted whenever an account review is created. Currently this is only done on a scheduled basis by the service itself.
+}
+
+stream Commands {
+	
+}
+
+
+
+
+
+
+
+
+
+
+

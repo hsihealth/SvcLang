@@ -28,6 +28,22 @@
 			<string>keyword.other</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Api pieces</string>
+			<key>match</key>
+			<string>(stream|http)\s(\w+)</string>
+			<key>name</key>
+			<string>keyword.other</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>Category</string>
 			<key>match</key>
@@ -83,7 +99,7 @@
 			<key>comment</key>
 			<string>Setting</string>
 			<key>match</key>
-			<string>^(namespace|service|version|stream)\s+(.+)</string>
+			<string>^(namespace|service|version)\s+(.+)</string>
 			<key>name</key>
 			<string>keyword.other</string>
 		</dict>
