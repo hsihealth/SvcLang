@@ -2,8 +2,12 @@ namespace syncordia
 
 service AccountReviews
 
+//Service versions should use Semantic Versioning (http://semver.org/)
 version 1.0
 
+//Blocks of text like below are the official documentation for the entity in which they are written,
+//in this case the service. They are not comments, comments use the C++ style (// and /**/). 
+//Inline documentation (such as for fields) can be added with # This is official documentation.
 --
 Once insurance claims are submitted to a payer many things can interrupt or
 delay payment. To respond as quickly and effectively as possible, account review
@@ -15,12 +19,18 @@ these reviews.
 This service relies on data form the data warehouse.
 --
 
-## Account Review Management# Provides support for interacting with account reviews
-/*
-Well you know my name is simon
-*/
+//The double hash indicates a Category, which is a way to group larger service into pieces
+//like User Management VS Account Review Management
+## Account Review Management
 
-// Base Messages
+/*
+Below is the official documentation for the Category
+*/
+# Provides support for interacting with account reviews
+
+// Partial Messages - these are like interfaces or mixins and 
+// Allows common message structures to be factored out as well
+// as to provide message-based polymorphism
 partial message ErrorEvent {
 	message string # the error message
 }
@@ -34,23 +44,34 @@ partial message AcccountReviewMessage {
 }
 
 // Queries
-
+//A query message always responds with a result, which should be a message of type 'document'
+//As below messages can be defined the first time they are used. This example will use the AccountReviewQuery
+//as it is defined in the messages folder, but defines the response, AccountReviews, inline. Any message
+//defined using 'responds_with' will be a document type message.
 query AccountReviewQuery responds with AccountReviews
 {
+	//Here we have a field definition for a message. The syntax is:
+	//field_name field_type # documentation
 	reviews list[AccountReview] # The list of account reviews matching the provided query
 }
 
-query AccountReviewDetail extends EntityMessage responds with AccountReview
+//This example creates a new message called AccountReviewDetail that will include the fields of EntityMessage
+query AccountReviewDetail extends EntityMessage responds with AccountReview #Request the details of an account review
 
 query ReviewStatsQuery
 {
+	//This is the official documentation for the query
 	#Specifies a query agains the Account Review Snapshot cube. Results can be requested as a pivot table or as a set of time series.
 
+	//Fields are required by default. You can have an optional fields section also.
 	optional fields:
 
+	//The value in parenthesis is the default value of the field if 
+	//it is not provided
 	start_date  date(today) 	# The first date in time window to query
 	end_date    date(today) 	# The last date in the time window to query
 	by		    string       	# The dimension to group by
+	//For map and list data types the contained value must be provided in square brackets
 	where       map [string]  	# Cube filters to use to limit results
 	select      list[string] 	# The list of measures to include in the results
 	time_series boolean(false)  # Whether to return the results as a time series rather than a pivot table
@@ -58,18 +79,21 @@ query ReviewStatsQuery
 }
 responds with AccountReviewStats
 {
+	//enums can limit the values allowed, The underlying type will be a string
 	stats_format  enum [PIVOT_TABLE,TIME_SERIES]  # Indicates the data type of the result
+	// This data type is a Union, which means that the 'data' field of this message can contain EITHER a PivotTable OR a TimeSeries
 	data          [PivotTable,TimeSeries]   	  # The results of the query, can be either a PivotTable or TimeSeries message, depending on the query
 }
 
 // Commands
-
+//Commands return no values but do emit events.
+//This example defines the BeginNextReview message inline. Obviously the message type will be Command
 command BeginNextReview
 {
 	criteria AccountReviewQuery # The search criteria used to build up a candidate list of reviews to pick from
 }
-emits AccountReviewStarted extends AccountReviewMessage
-emits CannotBeginReview extends ErrorEvent
+emits AccountReviewStarted extends AccountReviewMessage //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
+emits CannotBeginReview extends ErrorEvent // Command errors are just events that command will emit if it fails
 
 command BeginReview extends EntityMessage
 {
