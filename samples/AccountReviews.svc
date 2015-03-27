@@ -19,20 +19,11 @@ these reviews.
 This service relies on data form the data warehouse.
 --
 
-//The double hash indicates a Category, which is a way to group larger service into pieces
-//like User Management VS Account Review Management
-## Account Review Management
-
-/*
-Below is the official documentation for the Category
-*/
-# Provides support for interacting with account reviews
-
 // Partial Messages - these are like interfaces or mixins and 
 // Allows common message structures to be factored out as well
 // as to provide message-based polymorphism
 partial message ErrorEvent {
-	message string # the error message
+	description string # the error message
 }
 
 partial message EntityMessage {
@@ -42,6 +33,20 @@ partial message EntityMessage {
 partial message AcccountReviewMessage {
 	review AccountReview # The review that is the context of the message
 }
+
+//A marker interface to indicate control bus commands
+partial message SystemCommand
+
+
+//The double hash indicates a Category, which is a way to group larger service into pieces
+//like User Management VS Account Review Management
+## Account Review Management
+
+/*
+Below is the official documentation for the Category
+*/
+# Provides support for interacting with account reviews
+
 
 // Queries
 //A query message always responds with a result, which should be a message of type 'document'
@@ -92,15 +97,15 @@ command BeginNextReview
 {
 	criteria AccountReviewQuery # The search criteria used to build up a candidate list of reviews to pick from
 }
-emits AccountReviewStarted extends AccountReviewMessage //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
-emits CannotBeginReview extends ErrorEvent // Command errors are just events that command will emit if it fails
+emits      AccountReviewStarted extends AccountReviewMessage //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
+fails with CannotBeginReview    extends ErrorEvent // Command errors are just events that command will emit if it fails
 
 command BeginReview extends EntityMessage
 {
 	# Begin a specified review or emit an error event
 }
 emits AccountReviewStarted
-emits CannotBeginReview
+fails with CannotBeginReview
 
 command DeferReview extends EntityMessage
 {
@@ -114,7 +119,7 @@ command DeferReview extends EntityMessage
 
 }
 emits AccountReviewDeferred extends AccountReviewMessage
-emits CannotDeferReview extends ErrorEvent
+fails with CannotDeferReview extends ErrorEvent
 
 command CompleteReview extends EntityMessage
 {
@@ -127,24 +132,51 @@ command CompleteReview extends EntityMessage
 	account_review_action_ids list[integer] # The list of identifiers of actions that were taken as part of this review
 }
 emits AccountReviewCompleted extends AccountReviewMessage
-emits CannotCompleteReview extends ErrorEvent
+fails with CannotCompleteReview extends ErrorEvent
 
 event AccountReviewCreated extends AccountReviewMessage
 {
 	# Emitted whenever an account review is created. Currently this is only done on a scheduled basis by the service itself.
 }
 
-stream Commands {
-	
+## API Streaming
+# Standard Streaming API
+transport streaming
+encoding  avro
+
+input stream Commands
+{
+	# Receives all commands for this service
+	/* List the messages that can be sent or received on this stream by
+	  message type. To specify all messages that inherit from a common 
+	  base message or extend a particular partial message the * wildcard
+	  can be used. For all commands, queries, events or documents the
+	  base message type Command, Query, Event or Document can be used with
+	  a wildcard to indicate every message of the associated type.
+	*/
+	messages Command*
 }
 
+input stream Control
+{
+	# The control bus for the service, carrying non-business commands
+	messages SystemCommand*
+}
 
+output stream Events
+{
+	#The main event bus for this service
+	messages Event*
+}
 
+output stream Errors
+{
+	# The error bus for this service
+	messages ErrorEvent*
+}
 
-
-
-
-
-
+output stream SpecialStream {
+	messages MyMessage, YourMessage
+}
 
 

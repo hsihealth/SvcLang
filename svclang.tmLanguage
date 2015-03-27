@@ -23,7 +23,7 @@
 			<key>comment</key>
 			<string>Message types</string>
 			<key>match</key>
-			<string>(abstract|query|event|command|partial message|document|responds with|extends|emits)\s(\w+)</string>
+			<string>(abstract|query|event|command|partial message|document|responds with|fails with|extends|emits)\s+(\w+)</string>
 			<key>name</key>
 			<string>keyword.other</string>
 		</dict>
@@ -39,7 +39,7 @@
 			<key>comment</key>
 			<string>Api pieces</string>
 			<key>match</key>
-			<string>(stream|http)\s(\w+)</string>
+			<string>(input stream|output stream|http)\s(\w+)</string>
 			<key>name</key>
 			<string>keyword.other</string>
 		</dict>
@@ -99,7 +99,7 @@
 			<key>comment</key>
 			<string>Setting</string>
 			<key>match</key>
-			<string>^(namespace|service|version)\s+(.+)</string>
+			<string>^(namespace|service|version|transport|encoding)\s+(.+)</string>
 			<key>name</key>
 			<string>keyword.other</string>
 		</dict>

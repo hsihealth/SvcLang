@@ -8,12 +8,12 @@ uuid: df22d78e-b6a0-4484-8366-e818f287e490
 patterns:
 - comment: Message types
   name: keyword.other
-  match: (abstract|query|event|command|partial message|document|responds with|extends|emits)\s(\w+)
+  match: (abstract|query|event|command|partial message|document|responds with|fails with|extends|emits)\s+(\w+)
   captures:
     '2': {name: entity.name}
 - comment: Api pieces
   name: keyword.other
-  match: (stream|http)\s(\w+)
+  match: (input stream|output stream|http)\s(\w+)
   captures:
     '2': {name: entity.name}
 - comment: Category
@@ -35,7 +35,7 @@ patterns:
   match: \#.*$
 - comment: Setting
   name: keyword.other
-  match: ^(namespace|service|version)\s+(.+)
+  match: ^(namespace|service|version|transport|encoding)\s+(.+)
   captures:
     '2': {name: constant.language}
 - comment: Alias
