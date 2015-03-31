@@ -122,7 +122,7 @@ identifierList
 typeSpec
     : PrimitiveType (LeftBracket typeSpec RightBracket)*
     | Identifier
-    | enum
+    | enumeration
     | union
     ;
 
@@ -131,8 +131,8 @@ typeSpecList
     | typeSpec (Comma typeSpec)*
     ;
 
-enum
-     : Enum LeftBracket identifierList RightBracket
+enumeration
+     : Enumeration LeftBracket identifierList RightBracket
      ;
 
 union
@@ -184,7 +184,7 @@ PrimitiveType
     | 'date'
     ;
 
-Enum : 'enum' ;
+Enumueration : 'enum' ;
 
 Service : 'service' ;
 Extends : 'extends' ;
@@ -232,6 +232,7 @@ LeftBrace : '{';
 RightBrace : '}';
 Quote : '"';
 Star : '*';
+DoubleDash : '--';
 
 fragment DoubleHash : '##';
 fragment Hash : '#';
@@ -247,7 +248,7 @@ LineDoc
     ;
 
 BlockDoc
-    :   '--' .*? '--'
+    :   DoubleDash .*? DoubleDash
     ;
 
 fragment
