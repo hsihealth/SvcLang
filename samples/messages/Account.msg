@@ -6,7 +6,7 @@ document Account {
 
 	dollars -> number
 
-	required fields:
+	required:
 
 	account_key          integer    # The primary key of the account as maintained by the data warehouse
 	account_call_number  string 	# The business identifier of the account, as maintained by the billing system
@@ -15,7 +15,7 @@ document Account {
 	division 			 Division   # The division this account has been assigned to 
 	provider 			 Provider   # The medical provided that performed the transport 
 
-	optional fields:
+	optional:
 
 	account_state	     AccountState # The state of this accound as defined by the data warehouse
 	rpm_source_key 		 string  	  # The primary key of the account as defined by RPM Online

@@ -1,7 +1,7 @@
 
 document TimeSeries
 {
-	required fields:
+	required:
 
 	caption string           # The series caption
 	key     string           # The series key

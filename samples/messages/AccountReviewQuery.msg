@@ -1,6 +1,6 @@
 document AccountReviewQuery {
 
-	optional fields:
+	optional:
 
 	completed_start_date date 				# The date on or after which any returned reviews were completed
 	completed_end_date   date    	   		# The date on or before which any returned reviews were completed

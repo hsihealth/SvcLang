@@ -1,7 +1,7 @@
 document PivotTable {
 
-	required fields:
+	required:
 
-	optional fields:
+	optional:
 
 }
