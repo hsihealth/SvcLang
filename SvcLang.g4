@@ -1,11 +1,15 @@
 grammar SvcLang;
 
 sourceFile
-    : (service | message*) EOF
+    : (service | messageList) EOF
     ;
 
 service
-    : serviceDeclr specList
+    : serviceDeclr specList?
+    ;
+
+messageList
+    : message*
     ;
 
 message
@@ -17,7 +21,7 @@ message
     ;
 
 serviceDeclr
-    : Service Identifier
+    : Service Identifier documentation?
     ;
 
 specList
@@ -29,10 +33,10 @@ spec
     : setting
     | documentation
     | partialMessage
-    | query
-    | command
     | document
     | event
+    | command
+    | query
     | typeAlias
     | serviceSection
     | streamDef
@@ -44,31 +48,35 @@ documentation
     ;
 
 setting
-    : Identifier (Constant | ~(NewLine))
+    : Identifier Constant
     ;
 
 partialMessage
-    : PartialMessage messageDef
+    : PartialMessage messageDef documentation?
     ;
 
 query
-    : Query messageDef queryResponse
+    : Query messageDef RespondsWith queryResponse documentation?
     ;
 
 command
-    : Command messageDef emits* failsWith*
+    : Command messageDef (Emits emits)* (FailsWith failsWith)* documentation?
     ;
 
 document
-    : Document messageDef
+    : Document messageDef documentation?
     ;
 
 event
-    : Event messageDef
+    : Event messageDef documentation?
     ;
 
 messageDef
     : Identifier messageExtensions* messageBody?
+    ;
+
+messageRef
+    : Identifier
     ;
 
 messageExtensions
@@ -76,15 +84,18 @@ messageExtensions
     ;
 
 queryResponse
-    : RespondsWith messageDef
+    : messageRef #ResponseRef   
+    | messageDef #ResponseDef
     ;
 
 emits
-    : Emits messageDef
+    : messageRef #EmitsRef
+    | messageDef #EmitsDef
     ;
 
 failsWith
-    : FailsWith messageDef
+    : messageRef
+    | messageDef
     ;
 
 messageBody
@@ -98,12 +109,17 @@ messageElements
 messageElement
     : documentation
     | fieldSpec
+    | requiredFieldsSection
     | messageSection
     | typeAlias
     ;
 
 fieldSpec
-    : Identifier typeSpec defaultValue? documentation?
+    : Identifier Star? typeSpec defaultValue? documentation?
+    ;
+
+requiredFieldsSection
+    : 'required' Colon documentation?
     ;
 
 messageSection
@@ -120,8 +136,8 @@ identifierList
     ;
 
 typeSpec
-    : PrimitiveType (LeftBracket typeSpec RightBracket)*
-    | Identifier
+    : PrimitiveType (LeftBracket typeSpec RightBracket)?
+    | messageRef
     | enumeration
     | union
     ;
@@ -184,7 +200,7 @@ PrimitiveType
     | 'date'
     ;
 
-Enumueration : 'enum' ;
+Enumeration : 'enum' ;
 
 Service : 'service' ;
 Extends : 'extends' ;
@@ -210,17 +226,15 @@ Identifier
         )*
     ;
 
-StringLiteral
-    : Quote .* Quote
-    ;
-
 Constant
-    : NumberConstant
-    | StringLiteral
+    : StringLiteral
     | Identifier
+    | NumberConstant
     ;
 
-
+StringLiteral
+    : Quote .*? Quote
+    ;
 
 Colon : ':';
 Arrow : '->';

@@ -41,6 +41,18 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMessageList(@NotNull SvcLangParser.MessageListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMessageList(@NotNull SvcLangParser.MessageListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMessage(@NotNull SvcLangParser.MessageContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -185,6 +197,18 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMessageRef(@NotNull SvcLangParser.MessageRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMessageRef(@NotNull SvcLangParser.MessageRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMessageExtensions(@NotNull SvcLangParser.MessageExtensionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -197,25 +221,49 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQueryResponse(@NotNull SvcLangParser.QueryResponseContext ctx) { }
+	@Override public void enterResponseRef(@NotNull SvcLangParser.ResponseRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitQueryResponse(@NotNull SvcLangParser.QueryResponseContext ctx) { }
+	@Override public void exitResponseRef(@NotNull SvcLangParser.ResponseRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEmits(@NotNull SvcLangParser.EmitsContext ctx) { }
+	@Override public void enterResponseDef(@NotNull SvcLangParser.ResponseDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEmits(@NotNull SvcLangParser.EmitsContext ctx) { }
+	@Override public void exitResponseDef(@NotNull SvcLangParser.ResponseDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEmitsRef(@NotNull SvcLangParser.EmitsRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEmitsRef(@NotNull SvcLangParser.EmitsRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEmitsDef(@NotNull SvcLangParser.EmitsDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEmitsDef(@NotNull SvcLangParser.EmitsDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -276,6 +324,18 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFieldSpec(@NotNull SvcLangParser.FieldSpecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRequiredFieldsSection(@NotNull SvcLangParser.RequiredFieldsSectionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRequiredFieldsSection(@NotNull SvcLangParser.RequiredFieldsSectionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,12 +1,5 @@
 
 service AccountReviews
-
-//Service versions should use Semantic Versioning (http://semver.org/)
-version 1.0
-
-//Blocks of text like below are the official documentation for the entity in which they are written,
-//in this case the service. They are not comments, comments use the C++ style (// and /**/). 
-//Inline documentation (such as for fields) can be added with # This is official documentation.
 --
 Once insurance claims are submitted to a payer many things can interrupt or
 delay payment. To respond as quickly and effectively as possible, account review
@@ -17,6 +10,13 @@ these reviews.
 
 This service relies on data form the data warehouse.
 --
+//Service versions should use Semantic Versioning (http://semver.org/)
+version 1.0
+author "Nate The Motherfucking Great"
+//Blocks of text like below are the official documentation for the entity in which they are written,
+//in this case the service. They are not comments, comments use the C++ style (// and /**/). 
+//Inline documentation (such as for fields) can be added with # This is official documentation.
+
 
 // Partial Messages - these are like interfaces or mixins and 
 // Allows common message structures to be factored out as well
@@ -141,6 +141,7 @@ event AccountReviewCreated extends AccountReviewMessage
 //Streaming API
 input stream Commands
 {
+    encoding "json"
 	# Receives all commands for this service
 	/* List the messages that can be sent or received on this stream by
 	  message type. To specify all messages that inherit from a common 

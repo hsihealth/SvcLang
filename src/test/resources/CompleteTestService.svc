@@ -1,0 +1,290 @@
+
+service AccountReviews
+--
+Once insurance claims are submitted to a payer many things can interrupt or
+delay payment. To respond as quickly and effectively as possible, account review
+specialists periodically review every open account once every 30 days and apply
+any necessary interventions to ensure the best and most expedient outcome. This
+service provides all necessary support for scheduling, assigning and tracking
+these reviews.
+
+This service relies on data form the data warehouse.
+--
+//Service versions should use Semantic Versioning (http://semver.org/)
+version 1.0
+author "Nate The Motherfucking Great"
+//Blocks of text like below are the official documentation for the entity in which they are written,
+//in this case the service. They are not comments, comments use the C++ style (// and /**/).
+//Inline documentation (such as for fields) can be added with # This is official documentation.
+
+
+// Partial Messages - these are like interfaces or mixins and
+// Allows common message structures to be factored out as well
+// as to provide message-based polymorphism
+partial message ErrorEvent {
+	description string # the error message
+}
+
+partial message EntityMessage {
+	id integer # The id of the entity to operate on
+}
+
+partial message AcccountReviewMessage {
+	review AccountReview # The review that is the context of the message
+}
+
+//A marker interface to indicate control bus commands
+partial message SystemCommand
+
+
+//The colon indicates a section, which is a way to group larger service into pieces
+//like User Management VS Account Review Management
+## Account Review Management
+
+/*
+Below is the official documentation for the Category
+*/
+# Provides support for interacting with account reviews
+
+
+// Queries
+//A query message always responds with a result, which should be a message of type 'document'
+//As below messages can be defined the first time they are used. This example will use the AccountReviewQuery
+//as it is defined in the messages folder, but defines the response, AccountReviews, inline. Any message
+//defined using 'responds_with' will be a document type message.
+query AccountReviewQuery responds with AccountReviews
+{
+	//Here we have a field definition for a message. The syntax is:
+	//field_name field_type # documentation
+	reviews list[AccountReview] # The list of account reviews matching the provided query
+}
+
+//This example creates a new message called AccountReviewDetail that will include the fields of EntityMessage
+query AccountReviewDetail extends EntityMessage responds with AccountReview #Request the details of an account review
+
+query ReviewStatsQuery
+{
+	//This is the official documentation for the query
+	#Specifies a query agains the Account Review Snapshot cube. Results can be requested as a pivot table or as a set of time series.
+
+	//Fields are required by default. You can have an optional fields section also.
+	optional:
+
+	//The value in parenthesis is the default value of the field if
+	//it is not provided
+	start_date  date(today) 	# The first date in time window to query
+	end_date    date(today) 	# The last date in the time window to query
+	by		    string       	# The dimension to group by
+	//For map and list data types the contained value must be provided in square brackets
+	where       map [string]  	# Cube filters to use to limit results
+	select      list[string] 	# The list of measures to include in the results
+	time_series boolean(false)  # Whether to return the results as a time series rather than a pivot table
+	use_epoch   boolean(false)  # Whether to use unix epoch time rather than dates in the time series (useful for some graphing libraries)
+}
+responds with AccountReviewStats
+{
+	//enums can limit the values allowed, The underlying type will be a string
+	stats_format  enum [PIVOT_TABLE,TIME_SERIES]  # Indicates the data type of the result
+	// This data type is a Union, which means that the 'data' field of this message can contain EITHER a PivotTable OR a TimeSeries
+	data          [PivotTable,TimeSeries]   	  # The results of the query, can be either a PivotTable or TimeSeries message, depending on the query
+}
+
+// Commands
+//Commands return no values but do emit events.
+//This example defines the BeginNextReview message inline. Obviously the message type will be Command
+command BeginNextReview
+{
+	criteria AccountReviewQuery # The search criteria used to build up a candidate list of reviews to pick from
+}
+emits      AccountReviewStarted extends AccountReviewMessage //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
+fails with CannotBeginReview    extends ErrorEvent // Command errors are just events that command will emit if it fails
+
+command BeginReview extends EntityMessage
+{
+	# Begin a specified review or emit an error event
+}
+emits AccountReviewStarted
+fails with CannotBeginReview
+
+command DeferReview extends EntityMessage
+{
+	# Suspend this review until a future date
+
+	deferred_until_date date   # The date at which the review will be returned to active duty
+
+	optional:
+
+	resolution_comment string # Any comments regarding why the account was deferred
+
+}
+emits AccountReviewDeferred extends AccountReviewMessage
+fails with CannotDeferReview extends ErrorEvent
+
+command CompleteReview extends EntityMessage
+{
+	# Indicate that an account review has been completed
+
+	optional:
+
+	resolution_comment 		  string		# Any comments regarding the completion of the review
+	no_action_needed   		  boolean		# True if no action was taken in the performance of this review
+	account_review_action_ids list[integer] # The list of identifiers of actions that were taken as part of this review
+}
+emits AccountReviewCompleted extends AccountReviewMessage
+fails with CannotCompleteReview extends ErrorEvent
+
+event AccountReviewCreated extends AccountReviewMessage
+{
+	# Emitted whenever an account review is created. Currently this is only done on a scheduled basis by the service itself.
+}
+
+//Streaming API
+input stream Commands
+{
+    encoding "json"
+	# Receives all commands for this service
+	/* List the messages that can be sent or received on this stream by
+	  message type. To specify all messages that inherit from a common
+	  base message or extend a particular partial message the * wildcard
+	  can be used. For all commands, queries, events or documents the
+	  base message type Command, Query, Event or Document can be used with
+	  a wildcard to indicate every message of the associated type.
+	*/
+	messages Command*
+}
+
+input stream Control
+{
+	# The control bus for the service, carrying non-business commands
+	messages SystemCommand*
+}
+
+output stream Events
+{
+	#The main event bus for this service
+	messages Event*
+}
+
+output stream Errors
+{
+	# The error bus for this service
+	messages ErrorEvent*
+}
+
+output stream SpecialStream {
+	messages MyMessage, YourMessage
+}
+
+
+document Account {
+
+	# A representation of a patient account, the context for each account review
+
+	units:
+
+	dollars -> number
+
+	required:
+
+	account_key          integer    # The primary key of the account as maintained by the data warehouse
+	account_call_number  string 	# The business identifier of the account, as maintained by the billing system
+	current_balance 	 dollars    # The current account balance currently reported by the data warehouse
+	date_of_service 	 date       # The date the medical service being billed for occurred
+	division 			 Division   # The division this account has been assigned to
+	provider 			 Provider   # The medical provided that performed the transport
+
+	optional:
+
+	account_state	     AccountState # The state of this accound as defined by the data warehouse
+	rpm_source_key 		 string  	  # The primary key of the account as defined by RPM Online
+
+	level_of_care 		 string
+	--
+	The level of care associated with the transport
+
+		In general levels of care should be one of:
+			* BLS
+			* ALS-1
+			* ALS-2
+			* CCT
+	--
+
+	unit_name 						string            # The name of the unit that transported the patient
+	base_name 						string            # The name of the base that transported the patient
+	age_from_dos 					AgingCategory     # The age of the account from the date of service
+	age_from_first_submission 		AgingCategory     # The age of the account from the first submission
+	patient_origin_location 		Location          # Where the patient was picked up for transport
+	patient_destination_location	Location     	  # Where the patient was transport to
+	was_autocrossed_to_sins			boolean (false)   # Whether or not the account was automatically crossed over to a secondary payer
+	was_electronic_submission 		boolean (false)	  # Whether or not the claim was submitted electronically
+	is_primary_aca_plan 			boolean (false)   # Whether the insurance plan associated with the primary payer is an ACA exchange plan
+	primary_aca_plan 				string            # If an ACA plan, the medal color (bronze, gold, etc)
+
+	rpm_status_category 			string            # The status category for this account as defined by RPM Online
+	rpm_status 						string			  # The status of this account in RPM Online
+
+	billing_system_schedule 		string			  # The current schedule of this account in the billing system
+	billing_system_event 			string            # The current event for this account in the billing system
+
+	primary_payer					Payer 			  # The primary entity responsible for payment of this account
+	current_payer					Payer 			  # The entity currently being billed for the remaining balance on the accoumt
+
+	total_charges					dollars (0.0)	  # The total charges applied to this account
+	collectible_charges				dollars (0.0)	  # Also known as 'allowable amount', the total charges less any contractual write offs
+	total_payments					dollars (0.0)	  # The sum of any payments applied to this account so far
+	primary_payment_amount			dollars (0.0)	  # The total payments paid by the primary payer
+	supplemental_payment_amount	    dollars (0.0)	  # The total payments paid by any supplemental (non patient) payers
+	patient_payment_amount			dollars (0.0)	  # The total payments paid by the patient
+	total_refunds					dollars (0.0)	  # The total amount of refunds applied to the account
+
+	first_submission_date			date 			  # The date the first claim was submitted for this account
+	last_submission_date			date 			  # The date of the most revcent claim submission for this account
+	last_rpm_view_date				date  			  # The last time this account was viewed in RPM
+	last_rpm_action_date		    date              # The date the last action was taken on this account in RPM
+
+}
+
+document AccountReviewQuery {
+
+	optional:
+
+	completed_start_date date 				# The date on or after which any returned reviews were completed
+	completed_end_date   date    	   		# The date on or before which any returned reviews were completed
+	unassigned           boolean (false)	# Whether or not to restrict search results to only unassigned reviews
+	current_user		 boolean (false)    # Whether or not to use the current user as the context when matching review assignments
+	user_id				 integer 			# The primary key of the user to use as the context when matching review assignments
+	limit				 integer			# The maximum number of reviews to return
+
+	account_filters		 map[string]		# A map of filters (operator is implied to be equals(=)) against fields of AccountReview
+	review_filters	   	 map[string]		# A map of filters (operator is implied to be equals(=)) against fields of Account
+
+}
+
+document PivotTable {
+
+	required:
+
+	optional:
+
+}
+
+document Point {
+
+	required:
+
+	x [integer,number,string] # The position of the point along the x axis
+	y [integer,number,string] # The position of the point along the y axis
+
+}
+
+
+document TimeSeries
+{
+	required:
+
+	caption string           # The series caption
+	key     string           # The series key
+	data    map[list[Point]] # A map of data points keyed by measure name
+}
+
+
