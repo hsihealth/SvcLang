@@ -139,6 +139,8 @@ event AccountReviewCreated extends AccountReviewMessage
 }
 
 //Streaming API
+## Streaming API
+
 input stream Commands
 {
     encoding "json"

@@ -10,8 +10,6 @@ class Primitive(name:String) extends TypeSpec(name) with HasTypeSpec
 class MessageRef(name:String) extends TypeSpec(name) {
   def this(message:Message) = this(message.name)
 }
-class EventRef(name:String) extends MessageRef(name)
-
 class Enumeration extends TypeSpec("enum") with HasIdentifierList
 
 class Union extends TypeSpec("union") with HasTypeSpecList

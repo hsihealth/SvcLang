@@ -66,3 +66,22 @@ trait HasDefaultValue {
   this:ServiceNode =>
   var defaultValue:Option[String] = None
 }
+
+trait HasStreams {
+  this : ServiceNode =>
+  var streams : Map[String,StreamSpec] = Map()
+  def += (stream:StreamSpec) : StreamSpec = {
+    val t = (stream.name,stream)
+    streams = streams + t
+    stream
+  }
+}
+
+trait HasMessageSelections {
+  this: ServiceNode =>
+  var messageSelections : Vector[MessageSelection] = Vector()
+  def += (selection:MessageSelection) : MessageSelection = {
+    messageSelections = messageSelections :+ selection
+    selection
+  }
+}

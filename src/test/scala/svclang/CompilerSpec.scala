@@ -51,6 +51,7 @@ class CompilerSpec extends SvcLangSpec {
       it("should parse a message"){
         compiler.Compiler.compileMessages("partial message A").get.values.head shouldBe a [Message]
       }
+
     }
   }
 }

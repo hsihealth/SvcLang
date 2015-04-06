@@ -5,6 +5,7 @@ class ServiceSection(name:String) extends ServiceNode(name)
                                      with HasSettings
                                      with HasTypeAliases
                                      with HasMessages
+                                     with HasStreams
 {
 }
 

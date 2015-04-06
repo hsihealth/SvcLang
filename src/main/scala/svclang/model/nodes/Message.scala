@@ -24,8 +24,17 @@ class Document(name:String) extends Message(name)
 class Event(name:String) extends Message(name)
 
 class Command(name:String) extends Message(name) {
-  var emits:Vector[EventRef] = Vector()
-  var failsWith:Vector[EventRef] = Vector()
+  var emits:Vector[MessageRef] = Vector()
+  var failsWith:Vector[MessageRef] = Vector()
+  def addEmits(msg:MessageRef) : MessageRef = {
+    emits = emits :+ msg
+    msg
+  }
+
+  def addFailsWith(msg:MessageRef) : MessageRef = {
+    failsWith = failsWith :+ msg
+    msg
+  }
 }
 
 class Query(name:String) extends Message(name) {
@@ -37,3 +46,5 @@ class FieldSpec(name:String, val required:Boolean = false) extends ServiceNode(n
                                                            with HasDocumentation
                                                            with HasDefaultValue {
 }
+
+class MessageSelection(name:String) extends ServiceNode(name)

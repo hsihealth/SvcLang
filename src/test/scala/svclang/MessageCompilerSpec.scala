@@ -110,7 +110,7 @@ class MessageCompilerSpec extends SvcLangSpec {
         qry.respondsWith.get shouldBe a [MessageRef]
         qry.respondsWith.get.name should be ("B")
       }
-      it("should extract an inline response message and provide a referance to it"){
+      it("should extract an inline response message and provide a ref to it"){
         val msgs = Compiler.compileMessages("query A responds with B extends C").get
         msgs.size should be (2)
         val qry = msgs("A").asInstanceOf[Query]
@@ -129,6 +129,40 @@ class MessageCompilerSpec extends SvcLangSpec {
         cmd.head shouldBe a[Command]
       }
       it("should extract a ref to an emits message"){
+        val msgs = Compiler.compileMessages("command A emits B").get
+        msgs.size should equal (1)
+        val cmd = msgs("A").asInstanceOf[Command]
+        cmd.emits.length should equal (1)
+        cmd.emits(0).name should equal ("B")
+      }
+      it("should extract an inline emits event and provide a ref to it"){
+        val msgs = Compiler.compileMessages("command A emits B extends C").get
+        msgs.size should be (2)
+        val cmd = msgs("A").asInstanceOf[Command]
+        cmd.emits.length should be (1)
+        cmd.emits(0) shouldBe a [MessageRef]
+        cmd.emits(0).name should be ("B")
+        msgs("B") shouldBe a [Event]
+        msgs("B").name should be ("B")
+        msgs("B").extensions(0).name should be ("C")
+      }
+      it("should extract a fails with message"){
+        val msgs = Compiler.compileMessages("command A fails with B").get
+        msgs.size should equal (1)
+        val cmd = msgs("A").asInstanceOf[Command]
+        cmd.failsWith.length should equal (1)
+        cmd.failsWith(0).name should equal ("B")
+      }
+      it("should extract an inline fails with and provide a ref to it"){
+        val msgs = Compiler.compileMessages("command A fails with B extends C").get
+        msgs.size should be (2)
+        val cmd = msgs("A").asInstanceOf[Command]
+        cmd.failsWith.length should be (1)
+        cmd.failsWith(0) shouldBe a [MessageRef]
+        cmd.failsWith(0).name should be ("B")
+        msgs("B") shouldBe a [Event]
+        msgs("B").name should be ("B")
+        msgs("B").extensions(0).name should be ("C")
       }
     }
 

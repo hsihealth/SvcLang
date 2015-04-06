@@ -269,13 +269,25 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFailsWith(@NotNull SvcLangParser.FailsWithContext ctx) { }
+	@Override public void enterFailsWithRef(@NotNull SvcLangParser.FailsWithRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFailsWith(@NotNull SvcLangParser.FailsWithContext ctx) { }
+	@Override public void exitFailsWithRef(@NotNull SvcLangParser.FailsWithRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFailsWithDef(@NotNull SvcLangParser.FailsWithDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFailsWithDef(@NotNull SvcLangParser.FailsWithDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -449,13 +461,25 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStreamDef(@NotNull SvcLangParser.StreamDefContext ctx) { }
+	@Override public void enterInputStreamDef(@NotNull SvcLangParser.InputStreamDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStreamDef(@NotNull SvcLangParser.StreamDefContext ctx) { }
+	@Override public void exitInputStreamDef(@NotNull SvcLangParser.InputStreamDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOutputStreamDef(@NotNull SvcLangParser.OutputStreamDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOutputStreamDef(@NotNull SvcLangParser.OutputStreamDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -509,13 +533,13 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMessageSelection(@NotNull SvcLangParser.MessageSelectionContext ctx) { }
+	@Override public void enterMessageSelectionPattern(@NotNull SvcLangParser.MessageSelectionPatternContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMessageSelection(@NotNull SvcLangParser.MessageSelectionContext ctx) { }
+	@Override public void exitMessageSelectionPattern(@NotNull SvcLangParser.MessageSelectionPatternContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

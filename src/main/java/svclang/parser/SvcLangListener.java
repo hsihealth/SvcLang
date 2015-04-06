@@ -227,15 +227,29 @@ public interface SvcLangListener extends ParseTreeListener {
 	 */
 	void exitEmitsDef(@NotNull SvcLangParser.EmitsDefContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SvcLangParser#failsWith}.
+	 * Enter a parse tree produced by the {@code FailsWithRef}
+	 * labeled alternative in {@link SvcLangParser#failsWith}.
 	 * @param ctx the parse tree
 	 */
-	void enterFailsWith(@NotNull SvcLangParser.FailsWithContext ctx);
+	void enterFailsWithRef(@NotNull SvcLangParser.FailsWithRefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SvcLangParser#failsWith}.
+	 * Exit a parse tree produced by the {@code FailsWithRef}
+	 * labeled alternative in {@link SvcLangParser#failsWith}.
 	 * @param ctx the parse tree
 	 */
-	void exitFailsWith(@NotNull SvcLangParser.FailsWithContext ctx);
+	void exitFailsWithRef(@NotNull SvcLangParser.FailsWithRefContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FailsWithDef}
+	 * labeled alternative in {@link SvcLangParser#failsWith}.
+	 * @param ctx the parse tree
+	 */
+	void enterFailsWithDef(@NotNull SvcLangParser.FailsWithDefContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FailsWithDef}
+	 * labeled alternative in {@link SvcLangParser#failsWith}.
+	 * @param ctx the parse tree
+	 */
+	void exitFailsWithDef(@NotNull SvcLangParser.FailsWithDefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SvcLangParser#messageBody}.
 	 * @param ctx the parse tree
@@ -377,15 +391,25 @@ public interface SvcLangListener extends ParseTreeListener {
 	 */
 	void exitDefaultValue(@NotNull SvcLangParser.DefaultValueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SvcLangParser#streamDef}.
+	 * Enter a parse tree produced by {@link SvcLangParser#inputStreamDef}.
 	 * @param ctx the parse tree
 	 */
-	void enterStreamDef(@NotNull SvcLangParser.StreamDefContext ctx);
+	void enterInputStreamDef(@NotNull SvcLangParser.InputStreamDefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SvcLangParser#streamDef}.
+	 * Exit a parse tree produced by {@link SvcLangParser#inputStreamDef}.
 	 * @param ctx the parse tree
 	 */
-	void exitStreamDef(@NotNull SvcLangParser.StreamDefContext ctx);
+	void exitInputStreamDef(@NotNull SvcLangParser.InputStreamDefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SvcLangParser#outputStreamDef}.
+	 * @param ctx the parse tree
+	 */
+	void enterOutputStreamDef(@NotNull SvcLangParser.OutputStreamDefContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SvcLangParser#outputStreamDef}.
+	 * @param ctx the parse tree
+	 */
+	void exitOutputStreamDef(@NotNull SvcLangParser.OutputStreamDefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SvcLangParser#streamBody}.
 	 * @param ctx the parse tree
@@ -427,13 +451,15 @@ public interface SvcLangListener extends ParseTreeListener {
 	 */
 	void exitMessageSelections(@NotNull SvcLangParser.MessageSelectionsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SvcLangParser#messageSelection}.
+	 * Enter a parse tree produced by the {@code MessageSelectionPattern}
+	 * labeled alternative in {@link SvcLangParser#messageSelection}.
 	 * @param ctx the parse tree
 	 */
-	void enterMessageSelection(@NotNull SvcLangParser.MessageSelectionContext ctx);
+	void enterMessageSelectionPattern(@NotNull SvcLangParser.MessageSelectionPatternContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SvcLangParser#messageSelection}.
+	 * Exit a parse tree produced by the {@code MessageSelectionPattern}
+	 * labeled alternative in {@link SvcLangParser#messageSelection}.
 	 * @param ctx the parse tree
 	 */
-	void exitMessageSelection(@NotNull SvcLangParser.MessageSelectionContext ctx);
+	void exitMessageSelectionPattern(@NotNull SvcLangParser.MessageSelectionPatternContext ctx);
 }

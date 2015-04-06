@@ -1,8 +1,10 @@
 #Successful Tests
-#Fri Apr 03 16:50:43 PDT 2015
-svclang.MessageCompilerSpec=1428105043376
-svclang.FieldSpecCompilerSpec=1428105043359
-svclang.ServiceCompilerSpec=1428105043359
-svclang.TypeSpecCompilerSpec=1428105043359
-svclang.CompilerSpec=1428105043428
-svclang.TypeAliasCompilerSpec=1428105043359
+#Mon Apr 06 11:57:27 PDT 2015
+svclang.MessageCompilerSpec=1428346647312
+svclang.FieldSpecCompilerSpec=1428346647239
+svclang.MessageSelectionCompilerSpec=1428346647239
+svclang.ServiceCompilerSpec=1428346647253
+svclang.TypeSpecCompilerSpec=1428346647248
+svclang.CompilerSpec=1428346647321
+svclang.StreamCompilerSpec=1428346647239
+svclang.TypeAliasCompilerSpec=1428346647239

@@ -78,7 +78,36 @@ trait MessageCompiler
 
   override def enterEmitsRef(ctx:EmitsRefContext): Unit = {
     currentMessage.foreach{ msg =>
+      msg.asInstanceOf[Command].addEmits(new MessageRef(ctx.messageRef().Identifier().getText.trim()))
     }
+  }
+
+  override def enterEmitsDef(ctx:EmitsDefContext): Unit = {
+    val emitsEvent = new Event(ctx.messageDef().Identifier().getText.trim())
+    currentMessage.foreach{msg =>
+      msg.asInstanceOf[Command].addEmits(new MessageRef(emitsEvent))
+    }
+    beginMessage(emitsEvent)
+  }
+  override def exitEmitsDef(ctx:EmitsDefContext): Unit ={
+    endMessage(shouldEndSection = false)
+  }
+
+  override def enterFailsWithRef(ctx:FailsWithRefContext):Unit = {
+    currentMessage.foreach{msg =>
+      msg.asInstanceOf[Command].addFailsWith(new MessageRef(ctx.messageRef().Identifier().getText.trim()))
+    }
+  }
+
+  override def enterFailsWithDef(ctx:FailsWithDefContext):Unit = {
+    val failsWithEvent = new Event(ctx.messageDef().Identifier().getText.trim())
+    currentMessage.foreach{msg =>
+      msg.asInstanceOf[Command].addFailsWith(new MessageRef(failsWithEvent))
+    }
+    beginMessage(failsWithEvent)
+  }
+  override def exitFailsWithDef(ctx:FailsWithDefContext):Unit = {
+    endMessage(shouldEndSection = false)
   }
 
 

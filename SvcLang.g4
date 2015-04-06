@@ -39,7 +39,8 @@ spec
     | query
     | typeAlias
     | serviceSection
-    | streamDef
+    | inputStreamDef
+    | outputStreamDef
     ;
 
 documentation
@@ -94,8 +95,8 @@ emits
     ;
 
 failsWith
-    : messageRef
-    | messageDef
+    : messageRef #FailsWithRef
+    | messageDef #FailsWithDef
     ;
 
 messageBody
@@ -163,8 +164,12 @@ defaultValue
     : LeftParen (Constant|Identifier) RightParen
     ;
 
-streamDef
-    : (InputStream|OutputStream) Identifier streamBody
+inputStreamDef
+    : InputStream Identifier streamBody? documentation?
+    ;
+
+outputStreamDef
+    : OutputStream Identifier streamBody? documentation?
     ;
 
 streamBody
@@ -187,7 +192,7 @@ messageSelections
     ;
 
 messageSelection
-    : Identifier '*'?
+    : Identifier '*'? # MessageSelectionPattern
     ;
 
 PrimitiveType
