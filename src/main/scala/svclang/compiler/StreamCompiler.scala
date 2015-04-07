@@ -21,13 +21,13 @@ trait StreamCompiler {
   }
 
   override def enterInputStreamDef(ctx:InputStreamDefContext) : Unit = {
-    val stream = new InputStream(ctx.Identifier().getText.trim())
+    val stream = new InputStream(ctx.Identifier(),currentStreamTarget)
     beginStream(stream)
   }
   override def exitInputStreamDef(ctx:InputStreamDefContext) : Unit = endStream()
 
   override def enterOutputStreamDef(ctx:OutputStreamDefContext) : Unit = {
-    val stream = new OutputStream(ctx.Identifier().getText.trim())
+    val stream = new OutputStream(ctx.Identifier(),currentStreamTarget)
     beginStream(stream)
   }
   override def exitOutputStreamDef(ctx:OutputStreamDefContext) : Unit = endStream()

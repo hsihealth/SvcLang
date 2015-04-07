@@ -12,12 +12,12 @@ trait ServiceCompiler {
   protected var currentServiceSection : Option[ServiceSection] = None
 
   override def enterService(ctx: ServiceContext): Unit = {
-    val svc = new Service(ctx.serviceDeclr().Identifier().getText.trim())
+    val svc = new Service(ctx.serviceDeclr().Identifier())
     beginService(svc)
   }
 
   override def enterServiceSection(ctx:ServiceSectionContext): Unit = {
-    beginSection(new ServiceSection(ctx.Section().getText.replace("##","").trim()))
+    beginSection(new ServiceSection(ctx.Section().getText.replace("##","").trim(),currentService))
   }
 
   private def beginService(service:Service):Unit = {

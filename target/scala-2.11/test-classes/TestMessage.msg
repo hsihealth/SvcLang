@@ -1,1 +1,0 @@
-partial message A

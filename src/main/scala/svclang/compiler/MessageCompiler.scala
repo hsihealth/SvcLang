@@ -1,5 +1,6 @@
 package svclang.compiler
 
+import org.antlr.v4.runtime.tree.TerminalNode
 import svclang.model.nodes.PartialMessage
 import svclang.model.nodes._
 import svclang.parser.SvcLangParser._
@@ -24,41 +25,40 @@ trait MessageCompiler
   protected def inRequiredFieldsSection : Boolean = {
     currentMessageSection.exists(_.isInstanceOf[RequiredFieldsSection])
   }
-
   //Message types
 
   //Partial Message
   override def enterPartialMessage(ctx: PartialMessageContext): Unit = {
-    beginMessage( new PartialMessage(ctx.messageDef().Identifier().getText.trim()) )
+    beginMessage( new PartialMessage(ctx.messageDef().Identifier(), currentMessageTarget) )
   }
   override def exitPartialMessage(ctx: PartialMessageContext): Unit = endMessage()
 
   //Event
   override def enterEvent(ctx:EventContext): Unit = {
-    beginMessage( new Event(ctx.messageDef().Identifier().getText.trim()))
+    beginMessage( new Event(ctx.messageDef().Identifier(), currentMessageTarget))
   }
   override def exitEvent(ctx:EventContext) = endMessage()
 
   //Document
   override def enterDocument(ctx:DocumentContext): Unit = {
-    beginMessage( new Document(ctx.messageDef().Identifier().getText.trim()))
+    beginMessage( new Document(ctx.messageDef().Identifier(), currentMessageTarget))
   }
   override def exitDocument(ctx:DocumentContext) = endMessage()
 
   //Query
   override def enterQuery(ctx:QueryContext): Unit = {
-    beginMessage( new Query(ctx.messageDef().Identifier().getText.trim()))
+    beginMessage( new Query(ctx.messageDef().Identifier(), currentMessageTarget))
   }
   override def exitQuery(ctx:QueryContext) = endMessage()
 
   override def enterResponseRef(ctx:ResponseRefContext): Unit = {
     currentMessage.foreach{ msg=>
-      msg.asInstanceOf[Query].respondsWith = Some(new MessageRef(ctx.messageRef().Identifier().getText.trim()))
+      msg.asInstanceOf[Query].respondsWith = Some(new MessageRef(ctx.messageRef().Identifier()))
     }
   }
 
   override def enterResponseDef(ctx:ResponseDefContext): Unit = {
-    val responseDoc = new Document(ctx.messageDef().Identifier().getText.trim())
+    val responseDoc = new Document(ctx.messageDef().Identifier(), currentMessageTarget)
     currentMessage.foreach{ msg =>
       msg.asInstanceOf[Query].respondsWith = Some(new MessageRef(responseDoc))
     }
@@ -72,18 +72,18 @@ trait MessageCompiler
 
   //Command
   override def enterCommand(ctx:CommandContext): Unit = {
-    beginMessage( new Command(ctx.messageDef().Identifier().getText.trim()))
+    beginMessage( new Command(ctx.messageDef().Identifier(), currentMessageTarget))
   }
   override def exitCommand(ctx:CommandContext) = endMessage()
 
   override def enterEmitsRef(ctx:EmitsRefContext): Unit = {
     currentMessage.foreach{ msg =>
-      msg.asInstanceOf[Command].addEmits(new MessageRef(ctx.messageRef().Identifier().getText.trim()))
+      msg.asInstanceOf[Command].addEmits(new MessageRef(ctx.messageRef().Identifier()))
     }
   }
 
   override def enterEmitsDef(ctx:EmitsDefContext): Unit = {
-    val emitsEvent = new Event(ctx.messageDef().Identifier().getText.trim())
+    val emitsEvent = new Event(ctx.messageDef().Identifier().getText.trim(), currentMessageTarget)
     currentMessage.foreach{msg =>
       msg.asInstanceOf[Command].addEmits(new MessageRef(emitsEvent))
     }
@@ -95,12 +95,12 @@ trait MessageCompiler
 
   override def enterFailsWithRef(ctx:FailsWithRefContext):Unit = {
     currentMessage.foreach{msg =>
-      msg.asInstanceOf[Command].addFailsWith(new MessageRef(ctx.messageRef().Identifier().getText.trim()))
+      msg.asInstanceOf[Command].addFailsWith(new MessageRef(ctx.messageRef().Identifier()))
     }
   }
 
   override def enterFailsWithDef(ctx:FailsWithDefContext):Unit = {
-    val failsWithEvent = new Event(ctx.messageDef().Identifier().getText.trim())
+    val failsWithEvent = new Event(ctx.messageDef().Identifier(), currentMessageTarget)
     currentMessage.foreach{msg =>
       msg.asInstanceOf[Command].addFailsWith(new MessageRef(failsWithEvent))
     }
@@ -113,11 +113,11 @@ trait MessageCompiler
 
   //Sections
   override def enterMessageSection(ctx:MessageSectionContext): Unit = {
-    beginSection(new MessageSection(ctx.Identifier().getText.replace(":","").trim()))
+    beginSection(new MessageSection(ctx.Identifier().getText.replace(":","").trim(), currentMessageTarget))
   }
 
   override def enterRequiredFieldsSection(ctx:RequiredFieldsSectionContext) : Unit = {
-    beginSection(new RequiredFieldsSection())
+    beginSection(new RequiredFieldsSection(currentMessageTarget))
   }
 
   private def beginMessage(message:Message) : Unit = {
@@ -150,7 +150,7 @@ trait MessageCompiler
   }
 
   private def registerMessage(message:Message) : Unit = {
-    val tpl = (message.name, message)
+    val tpl = (message.fullName, message)
     messages = messages + tpl
   }
 

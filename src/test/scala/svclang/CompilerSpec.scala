@@ -48,10 +48,9 @@ class CompilerSpec extends SvcLangSpec {
       it("should parse a service"){
         compiler.Compiler.compileService("service HiThere #son").get shouldBe a [Service]
       }
-      it("should parse a message"){
-        compiler.Compiler.compileMessages("partial message A").get.values.head shouldBe a [Message]
+      it("should parse a message") {
+        compiler.Compiler.compileMessages("partial message A").get.values.head shouldBe a[Message]
       }
-
     }
   }
 }

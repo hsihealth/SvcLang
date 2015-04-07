@@ -24,9 +24,9 @@ trait TypeSpecCompiler {
   //in such a way to allow pattern matching. Maybe someday, my sweet, maybe someday...
   private def typeSpecFromCtx(ctx:TypeSpecContext) : TypeSpec = {
     if (ctx.PrimitiveType() != null) {
-      new Primitive(ctx.PrimitiveType().getText.trim())
+      new Primitive(ctx.PrimitiveType())
     } else if (ctx.messageRef() != null) {
-      new MessageRef(ctx.messageRef().Identifier().getText.trim())
+      new MessageRef(ctx.messageRef().Identifier())
     } else if (ctx.enumeration() != null) {
       new Enumeration()
     } else if (ctx.union() != null) {

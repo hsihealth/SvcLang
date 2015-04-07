@@ -11,9 +11,9 @@ trait IdentifierListExtractor  {
   override def enterIdentifierList(ctx: IdentifierListContext): Unit = {
     stack.top match {
       case msgExt:HasMessageExtensions => ctx.Identifier().foreach{ id=>
-        msgExt += new MessageRef(id.getText.trim())
+        msgExt += new MessageRef(id)
       }
-      case idl:HasIdentifierList => ctx.Identifier().foreach(idl += _.getText.trim())
+      case idl:HasIdentifierList => ctx.Identifier().foreach(idl += _)
       case _ =>
     }
   }

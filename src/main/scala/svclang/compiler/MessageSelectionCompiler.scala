@@ -8,7 +8,7 @@ trait MessageSelectionCompiler {
 
   override def enterMessageSelectionPattern(ctx:MessageSelectionPatternContext): Unit ={
       stack.top match {
-        case sel:HasMessageSelections => sel += new MessageSelection(ctx.getText.trim())
+        case parent:HasMessageSelections => parent += new MessageSelection(ctx.getText.trim(),Some(parent))
       }
   }
 }

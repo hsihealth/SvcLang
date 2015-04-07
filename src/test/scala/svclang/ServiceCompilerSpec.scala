@@ -60,6 +60,10 @@ class ServiceCompilerSpec  extends SvcLangSpec{
         svc.messages.size should be(1)
         svc.messages("B") shouldBe a[PartialMessage]
       }
+      it("should properly nest messages"){
+        val svc = Compiler.compileService("service A\n ## B\ndocument C").get
+        svc.sections(0).messages("C").fullName should equal ("A.B.C")
+      }
     }
 
   }

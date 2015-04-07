@@ -100,6 +100,7 @@ class Compiler(val parser:SvcLangParser) extends SvcLangBaseListener
 {
 
   protected val stack = mutable.Stack[ServiceNode]()
+  implicit def TerminalNodeToString(in:TerminalNode) : String = in.getText.trim()
 
 
 }

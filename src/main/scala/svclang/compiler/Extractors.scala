@@ -17,9 +17,9 @@ trait SettingsExtractor {
   }
 
   def settingFromContext(ctx:SettingContext) : (String,String) = {
-    val key = ctx.Identifier().getText()
-    val value = ctx.Constant().getText().replaceAll(""""""","")
-    (key -> value)
+    val key = ctx.Identifier().getText
+    val value = ctx.Constant().getText.replaceAll("\"","")
+    key -> value
   }
 }
 
@@ -36,7 +36,7 @@ trait DocumentationExtractor {
   def documentFromContext(ctx:DocumentationContext) : Option[String] = {
     ctx match {
       case null => None
-      case doc => Some(doc.getText().replaceAll("--|#","").trim())
+      case doc => Some(doc.getText.replaceAll("--|#","").trim())
     }
   }
 }

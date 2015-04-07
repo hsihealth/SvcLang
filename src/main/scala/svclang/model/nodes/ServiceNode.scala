@@ -1,45 +1,42 @@
 package svclang.model.nodes
 
 
-abstract class ServiceNode(val name:String) {
+abstract class ServiceNode(val name:String, val parent:Option[ServiceNode] = None) {
+  def namespace : String = parent.map{_.fullName}.getOrElse("")
+  lazy val fullName : String = List(namespace,normalizedName).filter(!_.isEmpty()).mkString(".")
+  lazy val normalizedName : String = name.replace(" ","")
 }
 
-trait HasDocumentation {
-  this : ServiceNode =>
+trait HasDocumentation extends ServiceNode{
   var documentation: Option[String] = None
 }
 
-trait HasSettings {
-  this: ServiceNode => 
+trait HasSettings extends ServiceNode{
   var settings: Map[String,String] = Map()
   def +=(setting:(String,String)) : Unit = { settings = settings + setting}
+  override lazy val namespace = settings.getOrElse("namespace",super.namespace).trim
 }
 
-trait HasTypeAliases {
-  this: ServiceNode =>
+trait HasTypeAliases extends ServiceNode {
   var aliases: Vector[TypeAlias] = Vector()
   def +=(alias:TypeAlias) : Unit = { aliases = aliases :+ alias }
 }
 
-trait HasTypeSpec {
-  this: ServiceNode =>
+trait HasTypeSpec extends ServiceNode {
   var typeSpec:Option[TypeSpec] = None
 }
 
-trait HasTypeSpecList {
-  this: ServiceNode =>
+trait HasTypeSpecList extends ServiceNode {
   var typeSpecs : Vector[TypeSpec] = Vector()
   def +=(spec:TypeSpec) : Unit = { typeSpecs = typeSpecs :+ spec }
 }
 
-trait HasIdentifierList {
-  this: ServiceNode =>
+trait HasIdentifierList extends ServiceNode{
   var ids : Vector[String] = Vector()
   def +=(id:String):Unit = { ids = ids :+ id}
 }
 
-trait HasMessages {
-  this: ServiceNode =>
+trait HasMessages extends ServiceNode {
   var messages : Map[String,Message] = Map()
   def +=(message:Message):Unit = {
     val t = (message.name, message)
@@ -47,28 +44,11 @@ trait HasMessages {
   }
 }
 
-trait HasMessageExtensions {
-  this: MessageBase =>
-  var extensions : Vector[MessageRef] = Vector()
-  def +=(extension:MessageRef):Unit = extensions = extensions :+ extension
-}
-
-trait HasFieldSpecs {
-  this:MessageBase =>
-  var fields : Map[String,FieldSpec] = Map()
-  def +=(spec:FieldSpec) : Unit = {
-    val tpl = (spec.name,spec)
-    fields = fields + tpl
-  }
-}
-
-trait HasDefaultValue {
-  this:ServiceNode =>
+trait HasDefaultValue extends ServiceNode {
   var defaultValue:Option[String] = None
 }
 
-trait HasStreams {
-  this : ServiceNode =>
+trait HasStreams extends ServiceNode {
   var streams : Map[String,StreamSpec] = Map()
   def += (stream:StreamSpec) : StreamSpec = {
     val t = (stream.name,stream)
@@ -77,8 +57,7 @@ trait HasStreams {
   }
 }
 
-trait HasMessageSelections {
-  this: ServiceNode =>
+trait HasMessageSelections extends ServiceNode {
   var messageSelections : Vector[MessageSelection] = Vector()
   def += (selection:MessageSelection) : MessageSelection = {
     messageSelections = messageSelections :+ selection

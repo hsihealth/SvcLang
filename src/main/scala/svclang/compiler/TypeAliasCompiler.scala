@@ -7,7 +7,7 @@ trait TypeAliasCompiler {
   this: Compiler =>
 
   override def enterTypeAlias(ctx: TypeAliasContext): Unit = {
-    val alias = new TypeAlias(ctx.Identifier().getText.trim())
+    val alias = new TypeAlias(ctx.Identifier())
     stack.top match {
       case aliases:HasTypeAliases => aliases += alias
       case _ =>

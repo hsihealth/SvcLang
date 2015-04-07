@@ -11,7 +11,7 @@ trait FieldSpecCompiler {
   override def enterFieldSpec(ctx: FieldSpecContext): Unit = {
     val specRequired = ctx.Star() != null || inRequiredFieldsSection
     val specName = ctx.Identifier().getText.trim()
-    val spec = new FieldSpec(specName,specRequired)
+    val spec = new FieldSpec(specName,currentMessage,specRequired)
     stack.top match {
       case hasSpecs:HasFieldSpecs => hasSpecs += spec
       case _ =>
