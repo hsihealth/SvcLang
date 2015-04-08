@@ -3,8 +3,14 @@ package svclang.model.nodes
 
 abstract class ServiceNode(val name:String, val parent:Option[ServiceNode] = None) {
   def namespace : String = parent.map{_.fullName}.getOrElse("")
-  lazy val fullName : String = List(namespace,normalizedName).filter(!_.isEmpty()).mkString(".")
+  lazy val fullName : String = List(namespace,normalizedName).filter(!_.isEmpty).mkString(".")
   lazy val normalizedName : String = name.replace(" ","")
+  lazy val service : Option[Service] = parent match {
+    case Some(svc) if svc.isInstanceOf[Service] => Some(svc.asInstanceOf[Service])
+    case Some(node) => node.service
+    case None if this.isInstanceOf[Service] => Some(this.asInstanceOf[Service])
+    case _ => None
+  }
 }
 
 trait HasDocumentation extends ServiceNode{
@@ -42,6 +48,7 @@ trait HasMessages extends ServiceNode {
     val t = (message.name, message)
     messages = messages + t
   }
+  def namespacedMessages: Map[String,Message] = messages.map{tpl => tpl._2.fullName -> tpl._2 }
 }
 
 trait HasDefaultValue extends ServiceNode {
@@ -64,3 +71,20 @@ trait HasMessageSelections extends ServiceNode {
     selection
   }
 }
+
+trait HasMessageExtensions {
+  this : MessageBase =>
+  var extensions : Vector[MessageRef] = Vector()
+  def +=(extension:MessageRef):Unit = extensions = extensions :+ extension
+}
+
+trait HasFieldSpecs {
+  this : MessageBase =>
+  var fields : Map[String,FieldSpec] = Map()
+  def +=(spec:FieldSpec) : Unit = {
+    val tpl = (spec.name,spec)
+    fields = fields + tpl
+  }
+}
+
+

@@ -1,6 +1,6 @@
 package svclang
 
-import svclang.model.nodes.{PartialMessage, Service}
+import svclang.model.nodes.{Message, PartialMessage, Service}
 import svclang.compiler.Compiler
 
 /**
@@ -63,6 +63,13 @@ class ServiceCompilerSpec  extends SvcLangSpec{
       it("should properly nest messages"){
         val svc = Compiler.compileService("service A\n ## B\ndocument C").get
         svc.sections(0).messages("C").fullName should equal ("A.B.C")
+      }
+    }
+
+    describe("namespaced messages"){
+      it("should return a recursive set of all messages"){
+        val svc = Compiler.compileService("service A\n document B\n## Section S1\nevent C event D\n## Section S2\npartial message E").get
+        svc.namespacedMessages.keys should equal (Set("A.B","A.SectionS1.C","A.SectionS1.D","A.SectionS2.E"))
       }
     }
 

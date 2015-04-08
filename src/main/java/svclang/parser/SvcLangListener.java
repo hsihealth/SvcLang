@@ -159,6 +159,16 @@ public interface SvcLangListener extends ParseTreeListener {
 	 */
 	void exitMessageDef(@NotNull SvcLangParser.MessageDefContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SvcLangParser#messageRefList}.
+	 * @param ctx the parse tree
+	 */
+	void enterMessageRefList(@NotNull SvcLangParser.MessageRefListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SvcLangParser#messageRefList}.
+	 * @param ctx the parse tree
+	 */
+	void exitMessageRefList(@NotNull SvcLangParser.MessageRefListContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SvcLangParser#messageRef}.
 	 * @param ctx the parse tree
 	 */
@@ -168,6 +178,16 @@ public interface SvcLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMessageRef(@NotNull SvcLangParser.MessageRefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SvcLangParser#namespace}.
+	 * @param ctx the parse tree
+	 */
+	void enterNamespace(@NotNull SvcLangParser.NamespaceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SvcLangParser#namespace}.
+	 * @param ctx the parse tree
+	 */
+	void exitNamespace(@NotNull SvcLangParser.NamespaceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SvcLangParser#messageExtensions}.
 	 * @param ctx the parse tree

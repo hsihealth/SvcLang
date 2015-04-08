@@ -2,97 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0b5a4c8-cb21-48ec-8deb-c4394f317ec5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceSection.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Command.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Command.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/Compiler.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/Compiler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/test-classes/svclang/CompilerSpec$$anonfun$1$$anonfun$apply$mcV$sp$7.class" afterPath="$PROJECT_DIR$/target/scala-2.11/test-classes/svclang/CompilerSpec$$anonfun$1$$anonfun$apply$mcV$sp$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/DefaultValueExtractor$$anonfun$enterDefaultValue$2.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/DefaultValueExtractor$$anonfun$enterDefaultValue$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Document.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Document.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/DocumentationExtractor$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/DocumentationExtractor$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Enumeration.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Enumeration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Event.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Event.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/FieldSpec$.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/FieldSpec$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/FieldSpec.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/FieldSpec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/FieldSpecCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/FieldSpecCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDefaultValue$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDefaultValue$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDefaultValue.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDefaultValue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDocumentation$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDocumentation$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDocumentation.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasDocumentation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasFieldSpecs$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasFieldSpecs$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasFieldSpecs.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasFieldSpecs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasIdentifierList$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasIdentifierList$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasIdentifierList.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasIdentifierList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageExtensions$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageExtensions$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageExtensions.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageExtensions.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageSelections$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageSelections$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageSelections.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessageSelections.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessages$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessages$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessages.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasMessages.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasSettings$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasSettings$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasSettings.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasSettings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasStreams$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasStreams$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasStreams.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasStreams.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeAliases$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeAliases$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeAliases.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeAliases.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpec$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpec$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpec.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpecList$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpecList$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpecList.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/HasTypeSpecList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$$anonfun$enterIdentifierList$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$$anonfun$enterIdentifierList$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$$anonfun$enterIdentifierList$2.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$$anonfun$enterIdentifierList$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/IdentifierListExtractor$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Message.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageBase.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageBase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$2.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterEmitsRef$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterEmitsRef$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterFailsWithRef$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterFailsWithRef$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterResponseRef$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$enterResponseRef$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$inRequiredFieldsSection$1.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$$anonfun$inRequiredFieldsSection$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageSection.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageSection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageSelection.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/MessageSelection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageSelectionCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/MessageSelectionCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/PartialMessage.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/PartialMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Primitive.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Primitive.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Query.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Query.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/RequiredFieldsSection.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/RequiredFieldsSection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Service$.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Service$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Service.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Service.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/ServiceCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/ServiceCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/ServiceNode.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/ServiceNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/ServiceSection.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/ServiceSection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/SettingsExtractor$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/SettingsExtractor$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/StreamCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/StreamCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/StreamSpec.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/StreamSpec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/TypeAlias.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/TypeAlias.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/TypeAliasCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/TypeAliasCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/TypeSpec.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/TypeSpec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/TypeSpecCompiler$class.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/compiler/TypeSpecCompiler$class.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Union.class" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/svclang/model/nodes/Union.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/test/$global/$global/definedTestNames/data" afterPath="$PROJECT_DIR$/target/streams/test/$global/$global/definedTestNames/data" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/nathanstults.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SvcLang.g4" afterPath="$PROJECT_DIR$/SvcLang.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLang.tokens" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLang.tokens" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangBaseListener.java" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangBaseListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangLexer.java" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangLexer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangLexer.tokens" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangLexer.tokens" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangListener.java" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangParser.java" afterPath="$PROJECT_DIR$/src/main/java/svclang/parser/SvcLangParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/test/compile/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/test/compile/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/test/incCompileSetup/$global/streams/inc_compile" afterPath="$PROJECT_DIR$/target/streams/test/incCompileSetup/$global/streams/inc_compile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/test/test/$global/streams/succeeded_tests" afterPath="$PROJECT_DIR$/target/streams/test/test/$global/streams/succeeded_tests" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="svclang.iws" />
@@ -120,95 +54,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ServiceNodeSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala">
+      <file leaf-file-name="ServiceSpec.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="915">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceNode.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7684675" vertical-offset="173" max-vertical-offset="1080">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StreamCompiler.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.66445184" vertical-offset="0" max-vertical-offset="903">
+              <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
               <folding>
-                <element signature="e#26#54#0" expanded="true" />
+                <element signature="e#29#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala">
+      <file leaf-file-name="MessageRefSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Extractors.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala">
+      <file leaf-file-name="TypeSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompilerSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala">
+      <file leaf-file-name="Service.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-              <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-              <folding>
-                <element signature="e#17#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceCompilerSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1125">
-              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageCompilerSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1718" max-vertical-offset="2625">
-              <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageCompiler.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1493" max-vertical-offset="2400">
-              <caret line="152" column="31" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -222,8 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/parser/SvcLangExtractor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/Service.scala" />
         <option value="$PROJECT_DIR$/samples/AccountReviews.svc" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/parser/SvcLangCompiler.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/ServiceSection.scala" />
@@ -243,36 +123,38 @@
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceBase.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerClass.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/FieldSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/resources/TestMessage.msg" />
         <option value="$PROJECT_DIR$/src/test/resources/CompleteMessage.msg" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListCompiler.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/DefaultValueCompiler.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/FieldSpecCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/SvcLang.g4" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageSelectionCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceSection.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/SvcLang.g4" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala" />
       </list>
     </option>
   </component>
@@ -280,7 +162,7 @@
     <option name="x" value="1680" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="height" value="1023" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -482,40 +364,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="nodes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StreamSpec.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -820,6 +668,22 @@
     <property name="$PROJECT_DIR$/SvcLang.g4::/gen-visitor" value="false" />
     <property name="$PROJECT_DIR$/SvcLang.g4::/package" value="svclang.parser" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala/svclang" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="200" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="202" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="205" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="999" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="200" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="202" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="205" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="999" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1079,7 +943,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="1680" y="23" width="1680" height="1023" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1088,15 +952,15 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3144385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31364125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1172,14 +1036,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
@@ -1265,16 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="263" max-vertical-offset="1185">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08269019" vertical-offset="0" max-vertical-offset="907">
@@ -1347,36 +1193,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SvcLang.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.037037" vertical-offset="2600" max-vertical-offset="5400">
-          <caret line="195" column="5" selection-start-line="195" selection-start-column="5" selection-end-line="195" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1065">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
-            <element signature="e#17#49#0" expanded="true" />
+            <element signature="e#17#49#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1389,26 +1211,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19845645" vertical-offset="0" max-vertical-offset="907">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1418,16 +1224,8 @@
         <state vertical-scroll-proportion="0.16538037" vertical-offset="0" max-vertical-offset="907">
           <caret line="10" column="93" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="93" />
           <folding>
-            <element signature="e#26#93#0" expanded="true" />
+            <element signature="e#26#93#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1435,58 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding>
-            <element signature="e#26#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-          <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-          <folding>
-            <element signature="e#17#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1718" max-vertical-offset="2625">
-          <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="915">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1504,32 +1250,160 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
           <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
           <folding>
-            <element signature="e#26#54#0" expanded="true" />
+            <element signature="e#26#54#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1493" max-vertical-offset="2400">
-          <caret line="152" column="31" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1125">
-          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="1230">
+          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07550336" vertical-offset="0" max-vertical-offset="596">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SvcLang.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="5565">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="1230">
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+          <folding>
+            <element signature="e#26#54#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1260">
+          <caret line="43" column="127" selection-start-line="43" selection-start-column="127" selection-end-line="43" selection-end-column="127" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3156146" vertical-offset="0" max-vertical-offset="903">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45182723" vertical-offset="27" max-vertical-offset="930">
+          <caret line="29" column="116" selection-start-line="29" selection-start-column="116" selection-end-line="29" selection-end-column="116" />
+          <folding>
+            <element signature="e#17#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6013289" vertical-offset="372" max-vertical-offset="1275">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1635">
+          <caret line="57" column="49" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+          <folding>
+            <element signature="e#26#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9767442" vertical-offset="0" max-vertical-offset="2715">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
+          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7684675" vertical-offset="173" max-vertical-offset="1080">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1440">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66445184" vertical-offset="0" max-vertical-offset="903">
+          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+          <folding>
+            <element signature="e#29#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

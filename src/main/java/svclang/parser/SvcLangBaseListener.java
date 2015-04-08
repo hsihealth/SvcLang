@@ -197,6 +197,18 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMessageRefList(@NotNull SvcLangParser.MessageRefListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMessageRefList(@NotNull SvcLangParser.MessageRefListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMessageRef(@NotNull SvcLangParser.MessageRefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -204,6 +216,18 @@ public class SvcLangBaseListener implements SvcLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMessageRef(@NotNull SvcLangParser.MessageRefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNamespace(@NotNull SvcLangParser.NamespaceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNamespace(@NotNull SvcLangParser.NamespaceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,11 +1,9 @@
 package svclang.compiler
 
-import svclang.model.nodes.{HasDefaultValue, HasDocumentation, HasSettings, ServiceSection}
+import svclang.model.nodes._
 import svclang.parser.SvcLangParser._
+import scala.collection.JavaConversions._
 
-/**
- * Created by nathanstults on 4/1/15.
- */
 trait SettingsExtractor {
   this : Compiler =>
 
@@ -53,4 +51,27 @@ trait DefaultValueExtractor {
   }
 }
 
+trait IdentifierListExtractor  {
+  this : Compiler with MessageCompiler =>
 
+  override def enterIdentifierList(ctx: IdentifierListContext): Unit = {
+    stack.top match {
+      case idl:HasIdentifierList => ctx.Identifier().foreach(idl += _)
+      case _ =>
+    }
+  }
+}
+
+trait MessageRefListExtractor {
+  this: Compiler with MessageCompiler =>
+
+  override def enterMessageRefList(ctx:MessageRefListContext):Unit = {
+    stack.top match {
+      case refs:HasMessageExtensions => ctx.messageRef().foreach{ ref =>
+        val namespace : Option[String] = Option(ref.namespace()).map{_.getText().trim()}
+        val msgName : String = ref.Identifier()
+        refs += new MessageRef(msgName,ns = namespace, ctx = currentMessageTarget)
+      }
+    }
+  }
+}

@@ -23,11 +23,11 @@ class CompilerSpec extends SvcLangSpec {
         result.isSuccess should be(true)
       }
       it("should be able to parse a message file"){
-        val result = compiler.Compiler.compileMessages(getClass.getResourceAsStream("/TestMessage.msg"))
+        val result = compiler.Compiler.compileMessages(getClass.getResourceAsStream("/TestMessage.msg"),None)
         result.isSuccess should be(true)
       }
       it("should be able to parse a complex message file"){
-        val result = compiler.Compiler.compileMessages(getClass.getResourceAsStream("/CompleteTestMessage.msg"))
+        val result = compiler.Compiler.compileMessages(getClass.getResourceAsStream("/CompleteTestMessage.msg"),None)
         result.isSuccess should be (true)
       }
     }

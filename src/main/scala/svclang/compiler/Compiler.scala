@@ -31,77 +31,73 @@ object Compiler {
 
   def compileService(input: ANTLRInputStream, silent:Boolean = false) : Try[Service] = {
     Try{
-      compileInput(input).left.get
+      compileInput(input).get
     }
   }
 
-  def compileMessageFile(sourcePath:String):Try[Map[String,Message]] = {
+  def compileMessageFile(sourcePath:String, service:Option[Service] = None):Try[Map[String,Message]] = {
     Try{
       new ANTLRInputStream(new FileInputStream(sourcePath))
-    }.flatMap(compileMessages(_))
+    }.flatMap(compileMessages(_,service, silent = false))
   }
 
-  def compileMessages(source:InputStream):Try[Map[String,Message]] = {
+  def compileMessages(source:InputStream, service:Option[Service]):Try[Map[String,Message]] = {
     Try{
       new ANTLRInputStream(source)
-    }.flatMap(compileMessages(_,silent = true))
+    }.flatMap(compileMessages(_,service,silent = true))
   }
 
-  def compileMessages(source:String):Try[Map[String,Message]] = {
+  def compileMessages(source:String,service:Option[Service] = None):Try[Map[String,Message]] = {
     Try{
       new ANTLRInputStream(source)
-    }.flatMap(compileMessages(_,silent = true))
+    }.flatMap(compileMessages(_,service,silent = true))
   }
 
-  def compileMessages(input:ANTLRInputStream, silent:Boolean = false) : Try[Map[String,Message]] = {
+  def compileMessages(input:ANTLRInputStream, service:Option[Service], silent:Boolean) : Try[Map[String,Message]] = {
     Try {
-      compileInput(input).right.get
+      val svc = service.orElse(Some(new Service("")))
+      compileInput(input,svc,silent).get.namespacedMessages
     }
   }
 
-  private def compileInput(input:ANTLRInputStream, silent:Boolean = false) : Either[Service,Map[String,Message]] = {
+  private def compileInput(input:ANTLRInputStream, service:Option[Service] = None, silent:Boolean = false) : Option[Service] = {
     val errors = new CompilerErrorListener(silent)
-
     val lexer = new SvcLangLexer(input)
     lexer.removeErrorListeners()
     lexer.addErrorListener(errors)
-
     val tokens = new CommonTokenStream(lexer)
-
     val parser = new SvcLangParser(tokens)
     parser.removeErrorListeners()
     parser.addErrorListener(errors)
-
-    val compiler = new Compiler(parser)
+    val compiler = new Compiler(parser,service)
     val tree = parser.sourceFile()
     val walker = new ParseTreeWalker()
     walker.walk(compiler,tree)
     if (errors.hasErrors)
       throw new RuntimeException(errors.message)
-    compiler.currentService match {
-      case Some(service) => Left(service)
-      case _ => Right(compiler.messages)
-    }
+    compiler.currentService
   }
 }
 
-class Compiler(val parser:SvcLangParser) extends SvcLangBaseListener
-                                            with ServiceCompiler
-                                            with DocumentationExtractor
-                                            with SettingsExtractor
-                                            with IdentifierListExtractor
-                                            with DefaultValueExtractor
-                                            with MessageCompiler
-                                            with TypeAliasCompiler
-                                            with TypeSpecCompiler
-                                            with FieldSpecCompiler
-                                            with StreamCompiler
-                                            with MessageSelectionCompiler
+class Compiler(val parser:SvcLangParser,service:Option[Service] = None) extends SvcLangBaseListener
+                                                                           with ServiceCompiler
+                                                                           with DocumentationExtractor
+                                                                           with SettingsExtractor
+                                                                           with IdentifierListExtractor
+                                                                           with DefaultValueExtractor
+                                                                           with MessageRefListExtractor
+                                                                           with MessageCompiler
+                                                                           with TypeAliasCompiler
+                                                                           with TypeSpecCompiler
+                                                                           with FieldSpecCompiler
+                                                                           with StreamCompiler
+                                                                           with MessageSelectionCompiler
 {
-
-  protected val stack = mutable.Stack[ServiceNode]()
   implicit def TerminalNodeToString(in:TerminalNode) : String = in.getText.trim()
 
+  protected val stack = mutable.Stack[ServiceNode]()
+  //If a service is provided, put it into scope
+  service.foreach(beginService)
 
 }
 

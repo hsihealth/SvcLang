@@ -76,12 +76,22 @@ messageDef
     : Identifier messageExtensions* messageBody?
     ;
 
+messageRefList
+    : messageRef
+    | messageRef (',' messageRef)*
+    ;
+
 messageRef
     : Identifier
+    | namespace '.' Identifier
+    ;
+
+namespace
+    : Identifier ('.' Identifier)*
     ;
 
 messageExtensions
-    : Extends identifierList
+    : Extends messageRefList
     ;
 
 queryResponse
@@ -223,6 +233,7 @@ InputStream : 'input stream';
 OutputStream : 'output stream';
 
 Messages : 'messages';
+
 
 Identifier
     :   Nondigit

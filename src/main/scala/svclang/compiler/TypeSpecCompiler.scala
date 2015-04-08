@@ -4,7 +4,7 @@ import svclang.model.nodes._
 import svclang.parser.SvcLangParser.TypeSpecContext
 
 trait TypeSpecCompiler {
-  this: Compiler =>
+  this: Compiler with MessageCompiler =>
 
   override def enterTypeSpec(ctx: TypeSpecContext): Unit = {
     val spec = typeSpecFromCtx(ctx)
@@ -26,7 +26,9 @@ trait TypeSpecCompiler {
     if (ctx.PrimitiveType() != null) {
       new Primitive(ctx.PrimitiveType())
     } else if (ctx.messageRef() != null) {
-      new MessageRef(ctx.messageRef().Identifier())
+      val namespace : Option[String] = Option(ctx.messageRef().namespace()).map(_.getText.trim())
+      val msgName : String = ctx.messageRef().Identifier()
+      new MessageRef(msgName, ns = namespace, ctx = currentMessageTarget)
     } else if (ctx.enumeration() != null) {
       new Enumeration()
     } else if (ctx.union() != null) {

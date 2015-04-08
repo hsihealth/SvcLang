@@ -28,6 +28,12 @@ class MessageCompilerSpec extends SvcLangSpec {
       msg.extensions(0).name should equal ("B")
       msg.extensions(1).name should equal ("C")
     }
+    it("should collect extensions with namespaces"){
+      val msg = Compiler.compileMessages("partial message A extends B extends hi.C").get.values.head
+      msg.extensions.length should be (2)
+      msg.extensions(0).fullName should equal ("B")
+      msg.extensions(1).fullName should equal ("hi.C")
+    }
     it("should extract a type alias"){
       val msg = Compiler.compileMessages("partial message A{\ndollars -> number}").get.values.head
       msg.aliases.length should be(1)
@@ -111,7 +117,7 @@ class MessageCompilerSpec extends SvcLangSpec {
         qry.respondsWith.get.name should be ("B")
       }
       it("should extract an inline response message and provide a ref to it"){
-        val msgs = Compiler.compileMessages("query A responds with B extends C").get
+        val msgs = Compiler.compileMessages("query A responds with B extends hi.C").get
         msgs.size should be (2)
         val qry = msgs("A").asInstanceOf[Query]
         qry.respondsWith shouldNot be (None)
@@ -119,7 +125,7 @@ class MessageCompilerSpec extends SvcLangSpec {
         qry.respondsWith.get.name should be ("B")
         msgs("B") shouldBe a [Document]
         msgs("B").name should be ("B")
-        msgs("B").extensions(0).name should be ("C")
+        msgs("B").extensions(0).fullName should be ("hi.C")
       }
     }
     describe("command"){

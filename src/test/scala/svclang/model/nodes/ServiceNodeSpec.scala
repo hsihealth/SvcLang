@@ -52,4 +52,28 @@ class ServiceNodeSpec extends SvcLangSpec{
       p.normalizedName should equal ("DuckDuckDuckDuckDuckDuckGOOSE")
     }
   }
+  describe("service"){
+    it("should return nothing if a service is not in the hierarchy"){
+      val n = new ServiceNode("hi",None){}
+      n.service should be (None)
+    }
+    it("should return itself it the node is itself a service"){
+      val s = new Service("i am he")
+      s.service.get shouldBe a [Service]
+      s.service.get.name should equal ("i am he")
+    }
+    it("should return a parent if the parent is a service"){
+      val s = new Service("tada")
+      val n = new ServiceNode("kiddo",Some(s)){}
+      n.service shouldNot be (None)
+      n.service.get should be (s)
+    }
+    it("should return an ancestor if the ancestor is a service"){
+      val s = new Service("Gruncle Stan")
+      val p = new ServiceNode("parent",Some(s)){}
+      val n = new ServiceNode("child",Some(p)){}
+      n.service shouldNot be (None)
+      n.service.get should equal (s)
+    }
+  }
 }

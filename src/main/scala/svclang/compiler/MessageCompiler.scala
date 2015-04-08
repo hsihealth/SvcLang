@@ -15,7 +15,7 @@ trait MessageCompiler
 
   protected def currentMessageTarget : Option[HasMessages] = {
     if (stack.nonEmpty){
-      Option(stack.top).orElse(currentServiceSection).orElse(currentService) match {
+      Option(stack.top).filter(_.isInstanceOf[HasMessages]).orElse(currentServiceSection).orElse(currentService) match {
         case Some(context) if context.isInstanceOf[HasMessages] => Some(context.asInstanceOf[HasMessages])
         case _ => None
       }
@@ -53,7 +53,7 @@ trait MessageCompiler
 
   override def enterResponseRef(ctx:ResponseRefContext): Unit = {
     currentMessage.foreach{ msg=>
-      msg.asInstanceOf[Query].respondsWith = Some(new MessageRef(ctx.messageRef().Identifier()))
+      msg.asInstanceOf[Query].respondsWith = Some(new MessageRef(ctx.messageRef().Identifier(), ns = None, ctx = currentMessageTarget))
     }
   }
 
@@ -78,7 +78,7 @@ trait MessageCompiler
 
   override def enterEmitsRef(ctx:EmitsRefContext): Unit = {
     currentMessage.foreach{ msg =>
-      msg.asInstanceOf[Command].addEmits(new MessageRef(ctx.messageRef().Identifier()))
+      msg.asInstanceOf[Command].addEmits(new MessageRef(ctx.messageRef().Identifier(), ns = None, ctx = currentMessageTarget))
     }
   }
 
@@ -95,7 +95,7 @@ trait MessageCompiler
 
   override def enterFailsWithRef(ctx:FailsWithRefContext):Unit = {
     currentMessage.foreach{msg =>
-      msg.asInstanceOf[Command].addFailsWith(new MessageRef(ctx.messageRef().Identifier()))
+      msg.asInstanceOf[Command].addFailsWith(new MessageRef(ctx.messageRef().Identifier(), ns = None, ctx = currentMessageTarget))
     }
   }
 

@@ -35,10 +35,16 @@ class TypeSpecCompilerSpec extends SvcLangSpec {
       l2.get.asInstanceOf[Primitive].typeSpec should be (None)
     }
 
-    it("compiles a MessageType"){
+    it("compiles a MessageRef"){
       val ts = Compiler.compileService("service A\nmymessage -> MyMessage").get.aliases.head.typeSpec.get
       ts shouldBe a [MessageRef]
       ts.name should equal ("MyMessage")
+    }
+    it("compiles a MessageRef with a namespace"){
+      val ts = Compiler.compileMessages("document A { mymessage this.is.MyMessage }").get("A").fields("mymessage").typeSpec.get
+      ts shouldBe a [MessageRef]
+      ts.asInstanceOf[MessageRef].namespace should equal ("this.is")
+      ts.asInstanceOf[MessageRef].name should equal ("MyMessage")
     }
 
     it("compiles an enumeration ") {

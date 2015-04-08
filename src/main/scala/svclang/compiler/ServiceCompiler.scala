@@ -20,7 +20,7 @@ trait ServiceCompiler {
     beginSection(new ServiceSection(ctx.Section().getText.replace("##","").trim(),currentService))
   }
 
-  private def beginService(service:Service):Unit = {
+  protected def beginService(service:Service):Unit = {
     stack.push(service)
     currentService = Some(service)
   }
