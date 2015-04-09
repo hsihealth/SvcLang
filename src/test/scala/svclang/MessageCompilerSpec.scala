@@ -36,13 +36,13 @@ class MessageCompilerSpec extends SvcLangSpec {
     }
     it("should extract a type alias"){
       val msg = Compiler.compileMessages("partial message A{\ndollars -> number}").get.values.head
-      msg.aliases.length should be(1)
-      msg.aliases(0).name should be ("dollars")
-      msg.aliases(0).typeSpec.get.name should be ("number")
+      msg.aliases.size should be(1)
+      msg.aliases("dollars").name should be ("dollars")
+      msg.aliases("dollars").typeSpec.get.name should be ("number")
     }
     it("should extract multiple type aliases"){
       val msg = Compiler.compileMessages("partial message A{\ndollars -> number\nnames -> string}").get.values.head
-      msg.aliases.length should be(2)
+      msg.aliases.size should be(2)
     }
     it("should extract fields"){
       val msg = Compiler.compileMessages("partial message A{ description string}").get.values.head

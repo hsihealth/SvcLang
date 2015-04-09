@@ -24,8 +24,8 @@ trait HasSettings extends ServiceNode{
 }
 
 trait HasTypeAliases extends ServiceNode {
-  var aliases: Vector[TypeAlias] = Vector()
-  def +=(alias:TypeAlias) : Unit = { aliases = aliases :+ alias }
+  var aliases: Map[String,TypeAlias] = Map()
+  def +=(alias:TypeAlias) : Unit = { aliases = aliases + (alias.name -> alias) }
 }
 
 trait HasTypeSpec extends ServiceNode {
