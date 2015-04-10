@@ -2,11 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0b5a4c8-cb21-48ec-8deb-c4394f317ec5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/runtime/Service.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compile.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Parse.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/ServiceCompilerSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/SvcLangListener.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/TypeAliasListenerSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/extractors.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/svclang/runtime/model/model.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/runtime/Service.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/CompilerErrorListener.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/CompilerErrorListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/FieldSpecListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageSelectionListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/ServiceListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/StreamListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/TypeAliasListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/TypeSpecListener.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/Message.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/Service.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/ServiceNode.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/StreamSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeAlias.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeAlias.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/ParseSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/FieldSpecCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/FieldSpecListenerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/MessageListenerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/MessageSelectionCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/MessageSelectionCompilerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/ServiceListenerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/StreamListenerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/TypeSpecListenerSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/MessageRefSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceNodeSpec.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" afterPath="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="svclang.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,81 +65,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ServiceSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala">
+      <file leaf-file-name="ServiceCompilerSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/ServiceCompilerSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-              <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="1500">
+              <caret line="9" column="92" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+              <folding>
+                <element signature="e#26#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Compile.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Compile.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding>
+                <element signature="e#26#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParseSpec.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/ParseSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="990">
+              <caret line="42" column="100" selection-start-line="42" selection-start-column="100" selection-end-line="42" selection-end-column="100" />
+              <folding>
+                <element signature="e#26#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extractors.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/extractors.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <folding>
+                <element signature="e#36#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SvcLang.g4" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SvcLang.g4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.037037" vertical-offset="3470" max-vertical-offset="5565">
+              <caret line="244" column="8" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceNode.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala">
+      <file leaf-file-name="ServiceCompiler.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1440">
-              <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
-              <folding />
+            <state vertical-scroll-proportion="0.34931508" vertical-offset="54" max-vertical-offset="2370">
+              <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+              <folding>
+                <element signature="e#26#67#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageCompilerSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala">
+      <file leaf-file-name="model.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/runtime/model/model.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="2715">
-              <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TypeAliasCompilerSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-              <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TypeSpecCompilerSpec.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6232877" vertical-offset="384" max-vertical-offset="1260">
-              <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageRefSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="810">
-              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="754" max-vertical-offset="1950">
+              <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TypeSpec.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="435">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="465">
-              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -121,57 +163,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/samples/AccountReviews.svc" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/parser/SvcLangCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/ServiceSection.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/ServiceNode.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/SvcLangSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/SvcLangSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/parser/Compiler.scala" />
-        <option value="$PROJECT_DIR$/src/test/resources/TestService.svc" />
-        <option value="$PROJECT_DIR$/src/test/resources/CompleteTestService.svc" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/CompilerErrorListener.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/ServiceCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/Compiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/SettingExtractor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/SettingsExtractor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/abc.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeAlias.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceBase.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerClass.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/FieldSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/resources/TestMessage.msg" />
-        <option value="$PROJECT_DIR$/src/test/resources/CompleteMessage.msg" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/DefaultValueCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/FieldSpecCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageSelectionCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceSection.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/SvcLang.g4" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/IdentifierListExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Listener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceListener.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecListener.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageSelectionCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/SvcLangListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/SvcLangParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Parser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Parse.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageSelectionListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/Compile.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/MessageRefSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceNodeSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/SvcLangListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/FieldSpecCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/FieldSpecListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/MessageListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/ServiceListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/StreamListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/model/SvcLangListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/SvcLangListenerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/TypeSpecListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/FieldSpecListener.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/ServiceNode.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/runtime/model/model.scala" />
+        <option value="$PROJECT_DIR$/SvcLang.g4" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/extractors.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/ParseSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/svclang/compiler/ServiceCompilerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/Compile.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala" />
       </list>
     </option>
   </component>
@@ -275,7 +317,75 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="listeners" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -344,6 +454,14 @@
               <option name="myItemId" value="svclang" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -371,7 +489,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svclang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -405,139 +557,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ServiceNode.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Service.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Message.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svclang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="compiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,8 +595,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Extractors.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+              <option name="myItemId" value="listeners" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -605,7 +629,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Compiler.scala" />
+              <option name="myItemId" value="listeners" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractors.scala" />
               <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,7 +758,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="svclang.compiler" />
       <recent name="svclang" />
+      <recent name="svclang.compiler.model" />
       <recent name="svclang.parser" />
     </key>
   </component>
@@ -996,7 +1026,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1009,13 +1041,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20721272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1076,31 +1106,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="810">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="435">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/Service.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="465">
           <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
@@ -1113,20 +1119,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/SvcLangSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/TestService.svc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="863">
-          <caret line="0" column="62" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1169,20 +1161,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7290">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/CompilerErrorListener.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/CompilerErrorListener.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3128621" vertical-offset="0" max-vertical-offset="863">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeAlias.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="5" column="93" selection-start-line="5" selection-start-column="93" selection-end-line="5" selection-end-column="93" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,6 +1212,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.5589857" vertical-offset="7258" max-vertical-offset="34320">
           <caret line="923" column="54" selection-start-line="923" selection-start-column="54" selection-end-line="923" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,74 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.4056761" vertical-offset="0" max-vertical-offset="2760">
           <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/FieldSpecCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/StreamCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="e#17#49#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageSelectionCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/FieldSpecCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageSelectionCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16538037" vertical-offset="0" max-vertical-offset="907">
-          <caret line="10" column="93" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeAliasCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/StreamSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/StreamCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/ServiceCompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="1230">
-          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,98 +1231,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SvcLang.g4">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeAlias.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="5565">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Extractors.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="1230">
-          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-          <folding>
-            <element signature="e#26#54#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Message.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/TypeSpecCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="5" column="93" selection-start-line="5" selection-start-column="93" selection-end-line="5" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/StreamSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3156146" vertical-offset="0" max-vertical-offset="903">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/CompilerSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45182723" vertical-offset="27" max-vertical-offset="930">
-          <caret line="29" column="116" selection-start-line="29" selection-start-column="116" selection-end-line="29" selection-end-column="116" />
-          <folding>
-            <element signature="e#17#62#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceNodeSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6013289" vertical-offset="372" max-vertical-offset="1275">
-          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Compiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1635">
-          <caret line="57" column="49" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
-          <folding>
-            <element signature="e#26#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/MessageCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/MessageRefSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/TypeSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/Service.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/Service.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
           <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
@@ -1410,43 +1255,277 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/model/nodes/ServiceSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/ServiceListener.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/model/nodes/ServiceNode.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/StreamListener.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1440">
-          <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/MessageCompilerSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/MessageSelectionCompilerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="2715">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeAliasCompilerSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/TypeAliasListenerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/TypeSpecCompilerSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/TypeSpecListenerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6232877" vertical-offset="384" max-vertical-offset="1260">
-          <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/TypeAliasListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08305648" vertical-offset="0" max-vertical-offset="903">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <marker date="1428695423000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/SvcLangListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16611296" vertical-offset="0" max-vertical-offset="903">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding>
+            <marker date="1428622171000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="2415">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/MessageSelectionListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03322259" vertical-offset="0" max-vertical-offset="903">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/Message.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Parse.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1275">
+          <caret line="34" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="1" />
+          <folding>
+            <element signature="e#26#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/TestService.svc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="863">
+          <caret line="0" column="62" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/model/MessageRefSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceNodeSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/model/ServiceSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding>
+            <element signature="e#32#58#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/FieldSpecListenerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <marker date="1428627091000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/MessageListenerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049833886" vertical-offset="45" max-vertical-offset="2745">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding>
+            <marker date="1428627091000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/ServiceListenerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08305648" vertical-offset="45" max-vertical-offset="1245">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <marker date="1428627091000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/listeners/StreamListenerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/SvcLangSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09966777" vertical-offset="0" max-vertical-offset="903">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/TypeSpecListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/FieldSpecListener.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21594684" vertical-offset="0" max-vertical-offset="903">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="e#36#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/ServiceNode.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2580288" vertical-offset="382" max-vertical-offset="1725">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/model/TypeSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/runtime/model/model.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="754" max-vertical-offset="1950">
+          <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SvcLang.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.037037" vertical-offset="3470" max-vertical-offset="5565">
+          <caret line="244" column="8" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/listeners/extractors.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#36#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/ParseSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="990">
+          <caret line="42" column="100" selection-start-line="42" selection-start-column="100" selection-end-line="42" selection-end-column="100" />
+          <folding>
+            <element signature="e#26#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/Compile.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding>
+            <element signature="e#26#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/svclang/compiler/ServiceCompilerSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="1500">
+          <caret line="9" column="92" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+          <folding>
+            <element signature="e#26#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/svclang/compiler/ServiceCompiler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34931508" vertical-offset="54" max-vertical-offset="2370">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+          <folding>
+            <element signature="e#26#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
