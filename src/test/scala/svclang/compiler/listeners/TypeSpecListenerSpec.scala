@@ -44,7 +44,7 @@ class TypeSpecListenerSpec extends SvcLangSpec {
     it("compiles a MessageRef with a namespace"){
       val ts = Parse.messages("document A { mymessage this.is.MyMessage }").get("A").fields("mymessage").typeSpec.get
       ts shouldBe a [MessageRef]
-      ts.asInstanceOf[MessageRef].namespace should equal ("this.is")
+      ts.asInstanceOf[MessageRef].namespace.get should equal ("this.is")
       ts.asInstanceOf[MessageRef].name should equal ("MyMessage")
     }
 

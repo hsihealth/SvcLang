@@ -1,8 +1,8 @@
 package svclang.compiler.model
 
 abstract class ServiceNode(val name:String, val parent:Option[ServiceNode] = None) {
-  def namespace : String = parent.map{_.fullName}.getOrElse("")
-  lazy val fullName : String = List(namespace,normalizedName).filter(!_.isEmpty).mkString(".")
+  def namespace : Option[String] = parent.map(_.fullName)
+  lazy val fullName : String = List(namespace.getOrElse(""),normalizedName).filter(!_.isEmpty).mkString(".")
   lazy val normalizedName : String = name.replace(" ","")
   lazy val service : Option[Service] = parent match {
     case Some(svc) if svc.isInstanceOf[Service] => Some(svc.asInstanceOf[Service])
@@ -22,7 +22,7 @@ trait HasSettings extends ServiceNode{
   private var _settings: Map[String,String] = Map()
   def settings = _settings
   def withSetting(setting:(String,String)) : ServiceNode =  {_settings = _settings + setting; this}
-  override lazy val namespace = settings.getOrElse("namespace",super.namespace).trim
+  override lazy val namespace : Option[String] = settings.get("namespace").orElse(super.namespace).map(_.trim)
 }
 
 trait HasTypeAliases extends ServiceNode {

@@ -8,5 +8,6 @@ compileOrder := CompileOrder.JavaThenScala
 
 libraryDependencies ++= Seq(
   "org.antlr" % "antlr4-runtime" % "4.5",
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+  "org.scala-lang" % "scala-reflect" % "2.11.5"
 )

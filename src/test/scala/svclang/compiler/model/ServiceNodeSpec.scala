@@ -6,26 +6,26 @@ class ServiceNodeSpec extends SvcLangSpec{
   describe("namespace"){
     it("should default to empty"){
       val n = new ServiceNode("hi",None){}
-      n.namespace should equal ("")
+      n.namespace should equal (None)
     }
     it("should inherit from a parent"){
       val p = new ServiceNode("parent",None){}
       val n = new ServiceNode("child",Some(p)){}
-      n.namespace should equal ("parent")
+      n.namespace.get should equal ("parent")
     }
     it("should allow an override from settings"){
       val p = new ServiceNode("parent",None){}
       val n = new ServiceNode("child",Some(p)) with HasSettings {
         this withSetting "namespace" -> "tada"
       }
-      n.namespace should equal ("tada")
+      n.namespace.get should equal ("tada")
     }
     it("should be deeply nested"){
       val ggp = new ServiceNode("greatgrandparent",None){}
       val gp = new ServiceNode("grandparent",Some(ggp)){}
       val p = new ServiceNode("parent",Some(gp)){}
       val n = new ServiceNode("child",Some(p)){}
-      n.namespace should equal ("greatgrandparent.grandparent.parent")
+      n.namespace.get should equal ("greatgrandparent.grandparent.parent")
     }
   }
   describe("fullName"){
