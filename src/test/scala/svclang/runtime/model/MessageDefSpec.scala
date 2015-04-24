@@ -42,9 +42,9 @@ class MessageDefSpec extends SvcLangSpec {
         partial message M2
         document M3 extends M1 extends M2
         ## S1
-        document M4 extends Silly.M1
+        document M4 extends silly.M1
         ## S2
-        document M5 extends M3 extends S1.M4
+        document M5 extends M3 extends s1.M4
       """.stripMargin
     val svc = Compile.service(svcSource).get
     it("should present a list of extended messages"){
@@ -58,7 +58,7 @@ class MessageDefSpec extends SvcLangSpec {
     it("should include refs to messages that could not be resolved"){
       val result = svc.sections(0).messages("M4").extendedMessages
       result.last.isLeft shouldBe true
-      result.last.left.get.fullName should be ("Silly.M1")
+      result.last.left.get.fullName should be ("silly.M1")
     }
   }
   describe("fields"){

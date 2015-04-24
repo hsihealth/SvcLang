@@ -1,7 +1,9 @@
 package svclang.compiler.model
 
+import svclang.Util._
+
 abstract class ServiceNode(val name:String, val parent:Option[ServiceNode] = None) {
-  def namespace : Option[String] = parent.map(_.fullName)
+  def namespace : Option[String] = parent.map(p=>snakify(p.fullName))
   lazy val fullName : String = List(namespace.getOrElse(""),normalizedName).filter(!_.isEmpty).mkString(".")
   lazy val normalizedName : String = name.replace(" ","")
   lazy val service : Option[Service] = parent match {

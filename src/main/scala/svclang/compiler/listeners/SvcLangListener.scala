@@ -5,6 +5,7 @@ import svclang.compiler.model.{Service, ServiceNode}
 import svclang.parser.SvcLangBaseListener
 
 import scala.collection.mutable
+import scala.language.implicitConversions
 
 class SvcLangListener(val parser:svclang.parser.SvcLangParser,service:Option[Service] = None) extends SvcLangBaseListener
                                                                                                  with ServiceListener

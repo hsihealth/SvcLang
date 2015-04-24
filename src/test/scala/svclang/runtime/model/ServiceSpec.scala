@@ -27,7 +27,7 @@ class ServiceSpec extends SvcLangSpec{
       result.right.get.messageScope.get should be (svc)
     }
     it("should search children when namespaces don't match"){
-      val result = svc.findMessage(new MessageRef("M1",Some("S1")))
+      val result = svc.findMessage(new MessageRef("M1",Some("s1")))
       result.right.get.messageScope.get should be (s1)
     }
     it("should search children"){

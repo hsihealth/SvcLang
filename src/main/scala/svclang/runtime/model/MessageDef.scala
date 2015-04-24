@@ -1,6 +1,6 @@
 package svclang.runtime.model
 
-trait MessageDef extends ServiceElement with Documented with TypeAliasScope with FieldScope {
+sealed trait MessageDef extends ServiceElement with Documented with TypeAliasScope with FieldScope {
   override type Parent = MessageContext
 
   //Fields
@@ -28,3 +28,59 @@ trait MessageDef extends ServiceElement with Documented with TypeAliasScope with
   }
 
 }
+
+case class PartialMessage( name:String,
+                           namespace:Option[String],
+                           documentation:Option[String],
+                           sections:Seq[MessageSection],
+                           extendedMessageReferences:Seq[MessageRef],
+                           typeAliases:Map[String,TypeAlias],
+                           fieldDefinitions:Map[String,FieldDef])(context: => MessageContext) extends MessageDef {
+  def parent = Some(context)
+}
+
+
+case class Command( name:String,
+                    namespace:Option[String],
+                    documentation:Option[String],
+                    sections:Seq[MessageSection],
+                    extendedMessageReferences:Seq[MessageRef],
+                    typeAliases:Map[String,TypeAlias],
+                    fieldDefinitions:Map[String,FieldDef],
+                    emits:Seq[MessageRef],
+                    failsWith:Seq[MessageRef]
+                    )(context: => MessageContext)  extends MessageDef {
+  def parent = Some(context)
+}
+
+case class Document( name:String,
+                     namespace:Option[String],
+                     documentation:Option[String],
+                     sections:Seq[MessageSection],
+                     extendedMessageReferences:Seq[MessageRef],
+                     typeAliases:Map[String,TypeAlias],
+                     fieldDefinitions:Map[String,FieldDef])(context: => MessageContext) extends MessageDef {
+  def parent = Some(context)
+}
+
+case class Event( name:String,
+                  namespace:Option[String],
+                  documentation:Option[String],
+                  sections:Seq[MessageSection],
+                  extendedMessageReferences:Seq[MessageRef],
+                  typeAliases:Map[String,TypeAlias],
+                  fieldDefinitions:Map[String,FieldDef])(context: => MessageContext) extends MessageDef {
+  def parent = Some(context)
+}
+
+case class Query( name:String,
+                  namespace:Option[String],
+                  documentation:Option[String],
+                  sections:Seq[MessageSection],
+                  extendedMessageReferences:Seq[MessageRef],
+                  typeAliases:Map[String,TypeAlias],
+                  fieldDefinitions:Map[String,FieldDef],
+                  respondsWith:MessageRef)(context: => MessageContext) extends MessageDef {
+  def parent = Some(context)
+}
+

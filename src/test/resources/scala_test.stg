@@ -1,0 +1,11 @@
+partialMessage(context) ::= <<
+
+Partial <context.name>
+
+>>
+
+message(context) ::= <<
+
+Message <context.name>
+
+>>

@@ -63,7 +63,7 @@ class ServiceListenerSpec  extends SvcLangSpec{
       }
       it("should properly nest messages"){
         val svc = Parse.service("service A\n ## B\ndocument C").get
-        svc.sections(0).messages("C").fullName should equal ("A.B.C")
+        svc.sections(0).messages("C").fullName should equal ("a.b.C")
       }
     }
   }

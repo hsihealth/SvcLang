@@ -37,7 +37,7 @@ class MessageScopeSpec extends SvcLangSpec{
     }
 
     it("should produce a message from a sibling if specified by namespace"){
-      val result = s2.findMessage(new MessageRef("M1",Some("A.S1")))
+      val result = s2.findMessage(new MessageRef("M1",Some("a.s1")))
       result.isRight shouldBe true
       result.right.get.name should be ("M1")
       result.right.get.messageScope.get should be (s1)
@@ -51,20 +51,20 @@ class MessageScopeSpec extends SvcLangSpec{
     }
 
     it("should produce a message with a partially matching namespace"){
-      val result = s2.findMessage(new MessageRef("M1",Some("S1")))
+      val result = s2.findMessage(new MessageRef("M1",Some("s1")))
       result.isRight shouldBe true
       result.right.get.name should be ("M1")
       result.right.get.messageScope.get should be (s1)
     }
 
     it("should match the root by namespace"){
-      val result = s2.findMessage(new MessageRef("M1",Some("A")))
+      val result = s2.findMessage(new MessageRef("M1",Some("a")))
       result.isRight shouldBe true
       result.right.get.messageScope.get should be (svc)
     }
 
     it("should not produce a message with a bogus namespace"){
-      val result = s2.findMessage(new MessageRef("M1",Some("A.B")))
+      val result = s2.findMessage(new MessageRef("M1",Some("a.b")))
       result.isLeft shouldBe true
     }
 
@@ -74,9 +74,9 @@ class MessageScopeSpec extends SvcLangSpec{
     }
 
     it("should return the ref when a message is not found"){
-      val result = s2.findMessage(new MessageRef("M0",Some("A.S1")))
+      val result = s2.findMessage(new MessageRef("M0",Some("a.s1")))
       result.isLeft shouldBe true
-      result.left.get.fullName should be ("A.S1.M0")
+      result.left.get.fullName should be ("a.s1.M0")
     }
   }
 
