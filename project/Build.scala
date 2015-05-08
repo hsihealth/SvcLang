@@ -51,11 +51,11 @@ object SvcLangBuild extends Build {
 
   lazy val s3Settings = Seq(
     s3region := Region.US_Standard,
-    publishMavenStyle := false,
+    publishMavenStyle := true,
     s3credentials := new DefaultAWSCredentialsProviderChain(),
     publishTo := {
       val prefix = if (isSnapshot.value) "snapshots" else "releases"
-      Some(s3resolver.value(s"$prefix s3 bucket", s3(prefix+".mvn-repo.hsihealth.com")) withIvyPatterns)
+      Some(s3resolver.value(s"$prefix s3 bucket", s3(prefix+".maven.hsihealth.com")) withMavenPatterns)
     }
   )
 
