@@ -1,11 +1,11 @@
-partialMessage(context) ::= <<
+partialMessage() ::= <<
 
-Partial <context.name>
+Partial {{name}}
 
 >>
 
-message(context) ::= <<
+message() ::= <<
 
-Message <context.name>
+Message {{name}}
 
 >>

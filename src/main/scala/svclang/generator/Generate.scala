@@ -10,7 +10,7 @@ import scala.util.Try
 
 object Generate {
 
-  def messages(implicit context:Context) : Try[Iterable[Try[Path]]] = {
+  def messages(implicit context:Context, renderer:ServiceRenderer) : Try[Iterable[Try[Path]]] = {
     compile(context).map{ svc =>
       new ServiceGenerator(svc).generateMessages().map{tryTuple =>
         tryTuple.map(_._1) //return just the path, at this level no need for the rendered element

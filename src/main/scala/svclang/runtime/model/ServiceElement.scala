@@ -11,5 +11,4 @@ trait ServiceElement {
   //Common Fields
   val name: String
   val namespace:Option[String]
-
 }

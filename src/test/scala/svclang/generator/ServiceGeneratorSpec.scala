@@ -6,6 +6,7 @@ import svclang.compiler.Compile
 import scala.collection.Set
 
 class ServiceGeneratorSpec extends SvcLangSpec {
+  implicit val renderer:ServiceRenderer = ScalaServiceRenderer
   val svcSource =
     """
       service MyService
@@ -27,7 +28,7 @@ class ServiceGeneratorSpec extends SvcLangSpec {
       msgs.map(_.name).toSet should be (Set("MyPartial","MyQuery","MyResponse","MyCommand","MyEvent","MyDocument","MySectionCommand"))
     }
     it("should produce a body for each message"){
-      forAll( msgs ){m => m.renderedText.isSuccess shouldBe true}
+      forAll( msgs ){m => m.renderedText shouldNot be (null)}
     }
   }
 

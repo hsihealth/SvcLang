@@ -1,5 +1,7 @@
 
 service AccountReviews
+
+namespace "syncordia"
 --
 Once insurance claims are submitted to a payer many things can interrupt or
 delay payment. To respond as quickly and effectively as possible, account review
@@ -26,10 +28,11 @@ partial message ErrorEvent {
 }
 
 partial message EntityMessage {
+	required:
 	id integer # The id of the entity to operate on
 }
 
-partial message AcccountReviewMessage {
+partial message AccountReviewMessage {
 	review AccountReview # The review that is the context of the message
 }
 
@@ -52,8 +55,13 @@ Below is the official documentation for the Category
 //As below messages can be defined the first time they are used. This example will use the AccountReviewQuery
 //as it is defined in the messages folder, but defines the response, AccountReviews, inline. Any message
 //defined using 'responds_with' will be a document type message.
-query AccountReviewQuery responds with AccountReviews
-{
+query AccountReviewQuery {
+	required:
+	criteria string #the search criteria
+
+	optional:
+	maxResults integer #the most results to return
+} responds with AccountReviews {
 	//Here we have a field definition for a message. The syntax is:
 	//field_name field_type # documentation
 	reviews list[AccountReview] # The list of account reviews matching the provided query
@@ -96,10 +104,10 @@ command BeginNextReview
 {
 	criteria AccountReviewQuery # The search criteria used to build up a candidate list of reviews to pick from
 }
-emits      AccountReviewStarted extends AccountReviewMessage //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
+emits      AccountReviewStarted extends AccountReviewMessage, ErrorEvent //We are indicating that an AccountReviewStarted event may be emitted. It is defined inline and simply extends AccountReviewMessage
 fails with CannotBeginReview    extends ErrorEvent // Command errors are just events that command will emit if it fails
 
-command BeginReview extends EntityMessage
+command BeginReview extends EntityMessage, ErrorEvent
 {
 	# Begin a specified review or emit an error event
 }

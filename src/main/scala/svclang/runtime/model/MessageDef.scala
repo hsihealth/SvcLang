@@ -17,6 +17,8 @@ sealed trait MessageDef extends ServiceElement with Documented with TypeAliasSco
     (inheritedFields ++ myFields).toMap
   }
 
+  def fieldList = fields.values
+
   //Methods
   def matches(ref:MessageRef):Boolean = matchesName(ref) && matchesNamespace(ref)
 
